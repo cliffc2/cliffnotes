@@ -1,4 +1,4 @@
-# Shelley Testnet - cliff notes - 
+# Shelley Testnet - cliff notes
 >Oct 2, 2019 - Here are a few notes for you to load the Jormungandr Node alpha 0.5.5 (x) from source (I'm on a mac - i'll add the win and ubuntu when i get to those machines.) References to other guides are below. Nix guide would also be nice. 
 
 Jormungandr is written in Rust programming language.
