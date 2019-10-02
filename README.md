@@ -45,18 +45,18 @@ _Load Rust from the Terminal - Open
 | Open a new command line window | mouse over - shell > new window (or command + N)| new terminal opens  |
 | check the node for current blockchain height | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0-lastBlockDate: "217.22760"-lastBlockFees:    |
 | make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | -------------  |
-| make a public key from secret key | ```cat receiver_secret.key | jcli key to-public > receiver_public.key``` | -------------  |
-| make an account address | ```jcli address account --testing $(cat receiver_public.key) | tee receiver_account.txt``` | his is your receiver account (account address) ca1s56lu955y... |
+| make a public key from secret key | ```cat receiver_secret.key \| jcli key to-public > receiver_public.key``` | -------------  |
+| make an account address | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | his is your receiver account (account address) ca1s56lu955y... |
 | edit file permission to execute command | ```chmod +x faucet-send-certificate.sh``` | -------------  |
 | edit permission to execute command| ```chmod +x faucet-send-money.sh``` | -------------  |
 | edit permission to execute command | ```chmod +x create-account-and-delegate.sh``` | -------------  |
 | list folder | ```ls -l``` | -------------  |
-| check if you are connecting to nodes | ```netstat -a |grep ESTABLISHED``` | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
+| check if you are connecting to nodes | ```netstat -a \|grep ESTABLISHED``` | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
 | go to the IOHK website to get ADA testnet coins from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | check your account address to see your coins | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` | counter: 0-delegation:pools:[]value: 250000000000 |
 | check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 | make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte... |
-| make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypqjk9ad55hsvpygztce38neejvsel8037 | jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
+| make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypqjk9ad55hsvpygztce38neejvsel8037 \| jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
 | ------------- | ------------- | -------------  |
 | ------------- | ------------- | -------------  |
 | left | intentionally  | blank  |
@@ -75,9 +75,9 @@ _Load Rust from the Terminal - Open
 | Get your Stake pool key and cert  | OSX Terminal |
 | ------------- | ------------- |
 | make a secret voting key  | ```jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv```  |
-| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
+| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv \| jcli key to-public > stake_pool_vrf.pub```  |
 | make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
-| make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
+| make a public stakepool key from secret | ```cat stake_pool_kes.prv \| jcli key to-public > stake_pool_kes.pub``` |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 
