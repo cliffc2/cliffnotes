@@ -86,7 +86,7 @@ _Load Rust from the Terminal - Open
 
 
 --- 
-how to get your stake pool cert (example)
+How to get your stake pool cert (example)
 ---
 
 
