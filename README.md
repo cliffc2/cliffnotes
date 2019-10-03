@@ -1,10 +1,8 @@
-<<<<<<< HEAD
+
 # Shelley Testnet on OSX - cliff notes  
 >Oct 2, 2019 - Here are a few notes for you OSX users to load the Jormungandr Node alpha 0.5.5 (x) from source (I'm on a mac - I'll add the win and ubuntu when I get to those machines.) References to other guides are below. Nix guide would also be nice. 
 =======
-# Shelley Testnet - cliff notes - 
->Oct 2, 2019 - Here are a few notes for you to load the Jormungandr Node alpha 0.5.5 (x) from source (I'm on a mac - i'll add the win and ubuntu when i get to those machines.) References to other guides are below. Nix guide would also be nice. 
->>>>>>> 8c94e40a13be85f48d048cb49bec4e3b29f11c1a
+
 
 Jormungandr is written in Rust programming language.
 This is a quickstarter list of things to load on your mac(hine). (mostly in order: scripts are on the way.)
@@ -12,18 +10,17 @@ This is a quickstarter list of things to load on your mac(hine). (mostly in orde
 
 [IOHK Quickstart reference](https://input-output-hk.github.io/jormungandr/quickstart/01_command_line.html)
 
-<<<<<<< HEAD
+
 _This is under construction_10-3-2019
 
 
-* To do list (will be checked and ordered after the brain dump)
-=======
+
 _This is under construction_
 ![key concepts of Cardano](https://flic.kr/p/2g6xKmp)
 test image upload here. see it? 
 
 * to do list (will be ordered after the brain dump)
->>>>>>> 8c94e40a13be85f48d048cb49bec4e3b29f11c1a
+
   * load rust
   * load jormungandr
   * load jcli
@@ -90,26 +87,14 @@ _Load Rust from the Terminal - Open
 Get your Stake pool key and cert
 ---
 
-<<<<<<< HEAD
+
 |   | OSX Terminal |
 | ------------- | ------------- |
 | make a secret voting key  | ```        jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv         ```  |
 | make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
 | make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
 | make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
-=======
-Get your Stake pool key and cert
----
 
-|   | OSX Terminal |
-| ------------- | ------------- |
-| make a secret voting key  | ```jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv```  |
-| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
-| make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
-| make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
->>>>>>> 8c94e40a13be85f48d048cb49bec4e3b29f11c1a
 
 
 
@@ -177,11 +162,10 @@ How to stop the command line if  (ctrl)+V
 
 
 
-<<<<<<< HEAD
+
 How to download the UTXO list from the blockchain
 =======
-How to download the utxo from the blockchain
->>>>>>> 8c94e40a13be85f48d048cb49bec4e3b29f11c1a
+
 
 ```
 jcli rest v0 utxo get --host "http://127.0.0.1:3101/api" 
@@ -197,7 +181,7 @@ jcli rest v0 utxo get --host "http://127.0.0.1:3101/api"
   index_in_transaction: 0
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
-<<<<<<< HEAD
+
 ------
 Example Node-config.yaml file
 ===
@@ -247,8 +231,7 @@ genesis:\
   node_id: Content of stake_pool.id file 
 
 
-=======
->>>>>>> 8c94e40a13be85f48d048cb49bec4e3b29f11c1a
+
 | References    | Web links (as of Oct 2019) |
 | ---      | ---       |
 | API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
