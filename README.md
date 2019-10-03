@@ -1,4 +1,4 @@
-# Shelley Testnet - cliff notes
+# Shelley Testnet - cliff notes - 
 >Oct 2, 2019 - Here are a few notes for you to load the Jormungandr Node alpha 0.5.5 (x) from source (I'm on a mac - i'll add the win and ubuntu when i get to those machines.) References to other guides are below. Nix guide would also be nice. 
 
 Jormungandr is written in Rust programming language.
@@ -7,23 +7,23 @@ This is a quickstarter list of things to load on your mac(hine). (mostly in orde
 
 [IOHK Quickstart reference](https://input-output-hk.github.io/jormungandr/quickstart/01_command_line.html)
 
-
+_This is under construction_
 ![key concepts of Cardano](https://flic.kr/p/2g6xKmp)
+test image upload here. see it? 
 
-
-* to do list
+* to do list (will be ordered after the brain dump)
   * load rust
   * load jormungandr
   * load jcli
   * load sqlite
-  * edit config
-  * edit 
-  * edit
+  * edit node-config.yaml
+  * edit stake pool
+  * edit port and check ip addresses
 
 
 
 
-_This is under construction_
+
 
 _Load Rust from the Terminal - Open
 (Finder ▸ ⁨Applications⁩ ▸ ⁨Utilities⁩)_
@@ -38,6 +38,7 @@ _Load Rust from the Terminal - Open
 | check the directory | ```ls``` | list of folders |
 | load jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.2 (/Users/cliff/jormungandr/jormungandr |
 | load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
+| check the jcli version | ```jcli -V``` | jcli 0.5.X  |
 | check folder paths| ```echo $PATH```| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | check your ip address | ```curl ifconfig.me``` | 14.0.17.9 |
 | check your fee settings (note 3101 port may be setup differently) | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
@@ -45,39 +46,29 @@ _Load Rust from the Terminal - Open
 | Open a new command line window | mouse over - shell > new window (or command + N)| new terminal opens  |
 | check the node for current blockchain height | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0-lastBlockDate: "217.22760"-lastBlockFees:    |
 | make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | -------------  |
-| make a public key from secret key | ```cat receiver_secret.key \| jcli key to-public > receiver_public.key``` | -------------  |
-| make an account address | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | his is your receiver account (account address) ca1s56lu955y... |
+| make a public key from secret key | ```cat receiver_secret.key | jcli key to-public > receiver_public.key``` | -------------  |
+| make an account address | ```jcli address account --testing $(cat receiver_public.key) | tee receiver_account.txt``` | his is your receiver account (account address) ca1s56lu955y... |
 | edit file permission to execute command | ```chmod +x faucet-send-certificate.sh``` | -------------  |
 | edit permission to execute command| ```chmod +x faucet-send-money.sh``` | -------------  |
 | edit permission to execute command | ```chmod +x create-account-and-delegate.sh``` | -------------  |
 | list folder | ```ls -l``` | -------------  |
-| check if you are connecting to nodes | ```netstat -a \|grep ESTABLISHED``` | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
+| check if you are connecting to nodes | ```netstat -a |grep ESTABLISHED``` | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
 | go to the IOHK website to get ADA testnet coins from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | check your account address to see your coins | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` | counter: 0-delegation:pools:[]value: 250000000000 |
 | check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 | make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte... |
-| make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypqjk9ad55hsvpygztce38neejvsel8037 \| jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
-| ------------- | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
-| left | intentionally  | blank  |
-| ------------- | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
-| Get your Stake pool key and cert | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
-| check the jcli version | ```jcli -V``` | jcli 0.5.X  |
-| ------------- | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
-| ------------- | ------------- | -------------  |
+| make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypqjk9ad55hsvpygztce38neejvsel8037 | jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
 
 
-| Get your Stake pool key and cert  | OSX Terminal |
+Get your Stake pool key and cert
+---
+
+|   | OSX Terminal |
 | ------------- | ------------- |
 | make a secret voting key  | ```jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv```  |
-| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv \| jcli key to-public > stake_pool_vrf.pub```  |
+| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
 | make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
-| make a public stakepool key from secret | ```cat stake_pool_kes.prv \| jcli key to-public > stake_pool_kes.pub``` |
+| make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 
@@ -86,7 +77,7 @@ _Load Rust from the Terminal - Open
 
 
 --- 
-How to get your stake pool cert (example)
+How to get your stake pool cert (one line command example)
 ---
 
 
@@ -105,8 +96,7 @@ How to update (get the new) jormungandr version with git
 | check submodules  | ```git submodule update --init --recursive```  |
 | Reload jormungandr old to new | ```cargo install --path jormungandr --force```  |
 | Reload jcli old to new |```cargo install --path jcli --force```  |
-| Content Cell  | Content Cell  
-| Content Cell	| Content Cell
+
 
 
 Other commands
@@ -119,8 +109,7 @@ Other commands
 | check submodule updates  | ```git submodule update --init --recursive```  |
 | find your sudo folder | ```which sudo```  |
 | find your mac version |```uname -a```  |
-| Content Cell  | Content Cell  
-| Content Cell	| Content Cell
+
 
 
 ---
@@ -129,7 +118,7 @@ How to stop the command line if  (ctrl)+V
 
 
 
-how to download the utxo from the blockchain
+How to download the utxo from the blockchain
 
  `jcli rest v0 utxo get --host "http://127.0.0.1:3101/api"`
 
@@ -143,19 +132,20 @@ how to download the utxo from the blockchain
   index_in_transaction: 0
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
-| References    | Weblink (as of Oct 2019) |
+| References    | Web links (as of Oct 2019) |
 | ---      | ---       |
 | API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
-| IOHK quick start   |https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html    |
-| IOHK Github Wiki    | https://github.com/input-output-hk/shelley-testnet/wiki       |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
+| Install from source    | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-install-from-source       |
+| Setting up stake pool distribution    | https://testnet.iohkdev.io/cardano/shelley/get-started/setting-up-stake-distribution/      |
+| Setup a Jormungandr Node (Shelley testnet)   | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(v-0.5.0)       |
+| Connecting the Nodes    | https://testnet.iohkdev.io/cardano/shelley/get-started/connecting-the-nodes/       |
+| Testing Transactions    | https://testnet.iohkdev.io/cardano/shelley/get-started/testing-transactions/       |
+| Rasberry Pi setup    | https://medium.com/@stakenuts/the-cardano-shelley-testnet-on-raspberry-pi-be49847fd6f9       |
+| Get $ADA testnet coins     | https://testnet.iohkdev.io/shelley/tools/faucet/       |
+| Register a stake pool     | https://input-output-hk.github.io/jormungandr/stake_pool/registering_stake_pool.html        |
+| Create a stake pool     | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-Stake-Pool        |
+
+
 
 
 
