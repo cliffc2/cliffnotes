@@ -11,15 +11,10 @@ This is a quickstarter list of things to load on your mac(hine). (mostly in orde
 [IOHK Quickstart reference](https://input-output-hk.github.io/jormungandr/quickstart/01_command_line.html)
 
 
-_This is under construction_10-3-2019
+_This is under construction_ 10-3-2019
 
 
-
-_This is under construction_
-![key concepts of Cardano](https://flic.kr/p/2g6xKmp)
-test image upload here. see it? 
-
-* to do list (will be ordered after the brain dump)
+* To do list (will be ordered after the brain dump)
 
   * load rust
   * load jormungandr
@@ -28,9 +23,6 @@ test image upload here. see it?
   * edit node-config.yaml
   * edit stake pool
   * edit port and check ip addresses
-
-
-
 
 
 
