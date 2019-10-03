@@ -77,9 +77,9 @@ Get your Stake pool key and cert
 |   | OSX Terminal |
 | ------------- | ------------- |
 | make a secret voting key  | ```        jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv         ```  |
-| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
+| make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv jcli key to-public > stake_pool_vrf.pub```  |
 | make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
-| make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
+| make a public stakepool key from secret | ```cat stake_pool_kes.prv jcli key to-public > stake_pool_kes.pub``` |
 
 
 
