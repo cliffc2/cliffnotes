@@ -146,8 +146,8 @@ how to download the utxo from the blockchain
 | References    | Weblink (as of Oct 2019) |
 | ---      | ---       |
 | API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
-| lkndf;lkns;dflkng     | sldf;erjfr        |
+| IOHK quick start   |https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html    |
+| IOHK Github Wiki    | https://github.com/input-output-hk/shelley-testnet/wiki       |
 | lkndf;lkns;dflkng     | sldf;erjfr        |
 | lkndf;lkns;dflkng     | sldf;erjfr        |
 | lkndf;lkns;dflkng     | sldf;erjfr        |
