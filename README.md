@@ -3,8 +3,8 @@ cliffc notes
 >Oct 2, 2019 - This is a quick "how to" list to load and run Shelley Testnet, Jormungandr 
 Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
 
-_This is currently under construction_ 10-3-2019 \
-Support and Technical question are welcome here. 
+_This is currently under logical review and construction_ 10-3-2019 \
+Technical support and questions are welcome here. 
 https://github.com/input-output-hk/shelley-testnet
 
 >Jormungandr is written in the Rust programming language.
@@ -66,9 +66,9 @@ Get your Stake pool key and cert
 |   | OSX Terminal |
 | ------------- | ------------- |
 | Make a secret voting key  | ```        jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv         ```  |
-| Make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
+| Make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv jcli key to-public > stake_pool_vrf.pub```  |
 | Make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
-| Make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
+| Make a public stakepool key from secret | ```cat stake_pool_kes.prv jcli key to-public > stake_pool_kes.pub``` |
 
 
 
@@ -127,9 +127,8 @@ Other commands
 | Check submodule updates  | ```git submodule update --init --recursive```  |
 | Find your sudo folder | ```which sudo```  |
 | Create new folder (directory) |```mkdir tmp/jormungander```  |
-| find your mac version |```uname -a```  | 
-| find your mac version |```uname -a```  | 
- | find your mac version |```uname -a```  |
+| Find your mac version |```uname -a```  | 
+
 
 mkdir [dir] 	Create new directory
 ---
