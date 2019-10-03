@@ -37,29 +37,30 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
-| Check the directory | ```ls``` | list of folders |
-| Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 | Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jormungandr```      |          |
 | Check folder paths| ```echo $PATH```| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | Check your ip address | ```curl ifconfig.me``` | 14.0.17.9 |
+|Configurer the node |  Open (or create) node-config.yaml in editor (Atom, VSCode, Github, etc.)   |  See the example node-config.yaml below  |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
 | Start (run) jormungandr node| ```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Open a new command line window | mouse over - shell > new window (or command + N)| new terminal opens  |
 | Check the node for current blockchain height | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0-lastBlockDate: "217.22760"-lastBlockFees:    |
+| Check the directory | ```ls``` | list of folders |
+| Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 | Make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | ed25519e_sk1vqsf2dh3rlg2....  |
 | Make a public key from secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
 | Make an account address | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
+| List folder | ```ls -l``` | list of all your files and folders |
 | Edit file permission to execute command | ```chmod +x faucet-send-certificate.sh``` | makes it executable  |
 | Edit permission to execute command| ```chmod +x faucet-send-money.sh``` | makes it executable  |
 | Edit permission to execute command | ```chmod +x create-account-and-delegate.sh``` | makes it executable  |
-| List folder | ```ls -l``` | list of all your files and folders |
+| List folder check if x (execute) | ```ls -l``` | list of all your files and folders |
 | Check if you are connecting to nodes | ```netstat -a grep ESTABLISHED``` | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
 | Go to the IOHK website to get ADA testnet coins from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your coins | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0-delegation:pools:[]value: 250000000000 |
 | Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 | Make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte... |
 | Make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypEXAMPLEztce38ndejvsel8037 jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
-| a |       |    |
 | a |       |    |
 | a |       |    |
 | a |       |    |
@@ -160,7 +161,7 @@ jcli rest v0 utxo get --host "http://127.0.0.1:3101/api"
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
 ------
-Example Node-config.yaml file (you need to make this to connect to other machines)
+Example node-config.yaml file (you need to make this to connect to other machines)
 ---
 
 
