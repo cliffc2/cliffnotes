@@ -3,20 +3,22 @@ cliffc notes
 >Oct 2, 2019 - This is a quick "how to" list to load and run Shelley Testnet, Jormungandr 
 Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
 
-_This is currently under logical review and construction_ 10-3-2019 \
+_This is currently under review and construction_ 10-3-2019 \
 Technical support and questions are welcome here. 
 https://github.com/input-output-hk/shelley-testnet
 
->Jormungandr is written in the Rust programming language.
+>Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.)
 So we need that programming language to translate our logic into machine language; 1's and 0's. 
 
-* To do list (will be checked and ordered after the brain dump)
-  * load rust
-  * load Jormungandr (the ring of computers around the globe)
+* To do list (mostly harmless)
+  * load Rust (using rustup command)
+  * load Jormungandr program (the ring of computers around the globe)
   * load jcli (Jormungandr Command Line Interface - JCLI)
-  * load sqlite (to hold the temporary database)
+  * load sqlite (for temporary blockchain database)
   * make folders (for temporary blockchain database)
   * edit node-config.yaml (your computer's IP info)
+  * make public keys from secret keys
+  *
   * edit stake pool
   * edit port and check ip addresses
 
@@ -35,10 +37,9 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
-| a |       |    |
-| Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 | Check the directory | ```ls``` | list of folders |
-| Make a folder to store the temporary blockchain (database)|   mkdir -p ~/pub_tesnet01/storage      |          |
+| Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
+| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jormungandr```      |          |
 | Check folder paths| ```echo $PATH```| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | Check your ip address | ```curl ifconfig.me``` | 14.0.17.9 |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
@@ -58,7 +59,12 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 | Make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte... |
 | Make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypEXAMPLEztce38ndejvsel8037 jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
-
+| a |       |    |
+| a |       |    |
+| a |       |    |
+| a |       |    |
+| a |       |    |
+| a |       |    |
 
 Get your Stake pool key and cert
 ---
@@ -128,9 +134,9 @@ Other commands
 | Find your sudo folder | ```which sudo```  |
 | Create new folder (directory) |```mkdir tmp/jormungander```  |
 | Find your mac version |```uname -a```  | 
+| Check the file permissions |```ls -l```  | 
 
 
-mkdir [dir] 	Create new directory
 ---
 How to stop the command line if  (ctrl)+V
 ---
@@ -216,7 +222,7 @@ The Official reference
 | Register a stake pool     | https://input-output-hk.github.io/jormungandr/stake_pool/registering_stake_pool.html        |
 | Terminal Cheatsheet for Mac (Basics)    | https://github.com/0nn0/terminal-mac-cheatsheet        |
 | API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
-
+| Explain (netstat) commands | https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l |
 Also check out the [Cardano StakePool Community on telegram](https://t.me/CardanoStakePoolWorkgroup) and the Github support triage for the Shelley testnet if you have any questions.
 https://github.com/input-output-hk/shelley-testnet
 
