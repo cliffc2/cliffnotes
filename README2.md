@@ -8,10 +8,9 @@ This is a quickstarter list of things to load on your mac(hine). (mostly in orde
 [IOHK Quickstart reference](https://input-output-hk.github.io/jormungandr/quickstart/01_command_line.html)
 
 _This is under construction_
-![key concepts of Cardano](https://flic.kr/p/2g6xKmp)
-test image upload here. see it? 
 
-* to do list (will be ordered after the brain dump)
+
+* To do list (will be checked and ordered after the brain dump)
   * load rust
   * load jormungandr
   * load jcli
@@ -69,8 +68,6 @@ Get your Stake pool key and cert
 | make a public voting key from secret voting key  | ```cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub```  |
 | make a secret stakepool key  from scratch  | ```jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv``` |
 | make a public stakepool key from secret | ```cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub``` |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 
 

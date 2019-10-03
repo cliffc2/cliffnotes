@@ -1,11 +1,11 @@
-# Shelley Testnet on OSX - cliffc notes
+# Shelley Testnet 101 on OSX
+cliffc notes
 >Oct 2, 2019 - This is a quick "how to" list to load and run Shelley Testnet, Jormungandr 
 Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
 
-The Official references is here. 
-[IOHK Quickstart reference](https://input-output-hk.github.io/jormungandr/quickstart/01_command_line.html) Also check out the Community and Ambassadors links.
-
-_This is currently under construction_ 10-3-2019
+_This is currently under construction_ 10-3-2019 \
+Support and Technical question are welcome here. 
+https://github.com/input-output-hk/shelley-testnet
 
 >Jormungandr is written in the Rust programming language.
 So we need that programming language to translate our logic into machine language; 1's and 0's. 
@@ -23,8 +23,6 @@ So we need that programming language to translate our logic into machine languag
 
 
 
-
-
 >_Open a command line Terminal (Open
 the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
@@ -36,7 +34,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Download Jormungandr | ``` git clone --recurse-submodules https://github.com/input-output-hk/jormungandr ```| Cloning into 'jormungandr'remote: Enumerating objects: 110, done --- Submodule path 'chain-deps': checked out   |
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
-| Check the jcli version | ```jcli -V``` | jcli 0.5.X  |
+| Check the jcli version | ```jcli -V``` | jcli 0.5.X |
 | a |       |    |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 | Check the directory | ```ls``` | list of folders |
@@ -204,22 +202,24 @@ genesis:\
   vrf_key: Content of stake_pool_vrf.prv file \
   node_id: Content of stake_pool.id file 
 
-
+The Official reference 
+[IOHK Quickstart reference](https://input-output-hk.github.io/jormungandr/quickstart/01_command_line.html) 
+---
 | References    | Web links (as of Oct 2019) |
 | ---      | ---       |
-| API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
-| Install from source    | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-install-from-source       |
-| Setting up stake pool distribution    | https://testnet.iohkdev.io/cardano/shelley/get-started/setting-up-stake-distribution/      |
+| Install from source    | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-install-from-source       |  |
 | Setup a Jormungandr Node (Shelley testnet)   | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(v-0.5.0)       |
 | Connecting the Nodes    | https://testnet.iohkdev.io/cardano/shelley/get-started/connecting-the-nodes/       |
 | Testing Transactions    | https://testnet.iohkdev.io/cardano/shelley/get-started/testing-transactions/       |
-| Rasberry Pi setup    | https://medium.com/@stakenuts/the-cardano-shelley-testnet-on-raspberry-pi-be49847fd6f9       |
 | Get $ADA testnet coins     | https://testnet.iohkdev.io/shelley/tools/faucet/       |
-| Register a stake pool     | https://input-output-hk.github.io/jormungandr/stake_pool/registering_stake_pool.html        |
 | Create a stake pool     | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-Stake-Pool        |
+| Setting up stake pool distribution    | https://testnet.iohkdev.io/cardano/shelley/get-started/setting-up-stake-distribution/    | Rasberry Pi setup   | https://medium.com/@stakenuts/the-cardano-shelley-testnet-on-raspberry-pi-be49847fd6f9       |
+| Register a stake pool     | https://input-output-hk.github.io/jormungandr/stake_pool/registering_stake_pool.html        |
 | Terminal Cheatsheet for Mac (Basics)    | https://github.com/0nn0/terminal-mac-cheatsheet        |
+| API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
 
-
+Also check out the [Cardano StakePool Community on telegram](https://t.me/CardanoStakePoolWorkgroup) and the Github support triage for the Shelley testnet if you have any questions.
+https://github.com/input-output-hk/shelley-testnet
 
 
 
