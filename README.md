@@ -33,7 +33,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-|Install Rust (linked to website)|[```curl https://sh.rustup.rs -sSf | sh```](https://www.rust-lang.org/tools/install)
+|Install Rust (linked to website)|[```curl https://sh.rustup.rs -sSf sh```](https://www.rust-lang.org/tools/install)
 |
 | Load Rust  | ```rustup install stable``` | info: checking for self-updates |
 | Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
