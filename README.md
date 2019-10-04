@@ -33,7 +33,8 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-|Install Rust|```curl https://sh.rustup.rs -sSf | sh```|
+|Install Rust (linked to website)|[```curl https://sh.rustup.rs -sSf | sh```](https://www.rust-lang.org/tools/install)
+|
 | Load Rust  | ```rustup install stable``` | info: checking for self-updates |
 | Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
 | Check the rust version | ```rustc --version``` | rustc 1.38.0 (625451e37 2019-09-23) |
@@ -99,7 +100,7 @@ How to get your stake pool cert (one line command example)
 ```
 jcli certificate new stake-pool-registration --kes-key kes25519-12-pk1q06kvadqp040wzc5acnnv06rjqphnavyf9xfgpf6awjnnptqef9jkk --vrf-key vrf_pk1sesgrk2k6e6rxypkcj855fnnwcs9k5zg62yhqklrzshmlj02qysdhxeqy --owner ed25519_pk14pe9kt0kcxqlj7h8g3ye2lt5mjlph0y08l2jg8u6hgwsag830qd708gl --start-validity 0 --management-threshold 1 --serial 1010101010 > stake_pool.cert
 ```
->This is what is would look like in logical pieces but the computer only sees one line.
+>This is what is would look like in logical command pieces (the computer only sees one line.)
 
 ```
 jcli certificate new stake-pool-registration 
