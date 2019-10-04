@@ -48,9 +48,9 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Check your ip address (public) this goes into your node-config.yaml | [```curl ifconfig.me```](https://ifconfig.me) | 14.0.17.9 |
 | Configure the node |  Open (or create) node-config.yaml in editor Atom, VSCode, Github, etc.  |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
-| Start (run) Jormungandr node| ```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Start (run) Jormungandr node | ```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 
->Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml. Also check your ports to make sure they are pointing to the right ones. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` and change the port 3101 to 8443 you will get an error. 
+>Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml. Also check your ports to make sure they are pointing to the right ones. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` and change the port 3101 to 8443 you will get an error. Also the genesis block we are using for this testnet is adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 
 
 |  | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
@@ -63,7 +63,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 >Now we will create a new account. [revised IOHK Documentation here](https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script)
  There are some [New scripts](https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/createAddress.sh) if you want to skip the manual account and key making.
 
-|d|Make an Account manual||
+||Make an Account manual||
 | ------------- | ------------- | -------------  |
 | Make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | ed25519e_sk1vqsf2dh3rlg2....  |
 | Make a public key from the secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
@@ -79,11 +79,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 | Make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte... |
 | Make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypEXAMPLEztce38ndejvsel8037 jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
-| a |       |    |
-| a |       |    |
-| a |       |    |
-| a |       |    |
-| a |       |    |
+
 
 Get your Stake pool key and cert
 ---
@@ -178,6 +174,10 @@ jcli rest v0 utxo get --host "http://127.0.0.1:3101/api"
   index_in_transaction: 0
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
+
+or you can use ```curl http://127.0.0.1:3101/api/v0/node/stats ``` 
+
+
 ------
 Example node-config.yaml file (you need to make this to connect to other machines)
 ---
@@ -241,7 +241,7 @@ The Official reference
 | Setting up stake pool distribution    | https://testnet.iohkdev.io/cardano/shelley/get-started/setting-up-stake-distribution/    | Rasberry Pi setup   | https://medium.com/@stakenuts/the-cardano-shelley-testnet-on-raspberry-pi-be49847fd6f9       |
 | Register a stake pool     | https://input-output-hk.github.io/jormungandr/stake_pool/registering_stake_pool.html        |
 | Terminal Cheatsheet for Mac (Basics)    | https://github.com/0nn0/terminal-mac-cheatsheet        |
-| API list | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
+| API list to check | https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml       |
 | Explain (netstat) commands | https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l |
 Also check out the [Cardano StakePool Community on telegram](https://t.me/CardanoStakePoolWorkgroup) and the Github support triage for the Shelley testnet if you have any questions.
 https://github.com/input-output-hk/shelley-testnet
