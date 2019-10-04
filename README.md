@@ -1,16 +1,19 @@
 # Shelley Testnet 101 on OSX
 cliffc notes
->Oct 2, 2019 - This is a quick "how to" list to load and run Shelley Testnet, Jormungandr 
+>Oct 2, 2019 - This is a quick list to load and run Jormungandr 
 Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
 
 _This is currently under review and construction_ 10-3-2019 \
-Technical support and questions are welcome here. 
+Technical support and questions are welcome here. And here:
 https://github.com/input-output-hk/shelley-testnet
+
+
+https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(--v0.5.0)
 
 >Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.)
 So we need that programming language to translate our logic into machine language; 1's and 0's. 
 
-* To do list (mostly harmless)
+* To do list (mostly harmless and )
   * load Rust (using rustup command)
   * load Jormungandr program (the ring of computers around the globe)
   * load jcli (Jormungandr Command Line Interface - JCLI)
@@ -30,20 +33,27 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
+|Install Rust|```curl https://sh.rustup.rs -sSf | sh```|
 | Load Rust  | ```rustup install stable``` | info: checking for self-updates |
 | Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
 | Check the rust version | ```rustc --version``` | rustc 1.38.0 (625451e37 2019-09-23) |
+|Update if old|```rustup update```|
+| Check folder path if Rust fails| ```echo $PATH```| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | Download Jormungandr | ``` git clone --recurse-submodules https://github.com/input-output-hk/jormungandr ```| Cloning into 'jormungandr'remote: Enumerating objects: 110, done --- Submodule path 'chain-deps': checked out   |
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
 | Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jormungandr```      |          |
-| Check folder paths| ```echo $PATH```| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
-| Check your ip address | ```curl ifconfig.me``` | 14.0.17.9 |
-|Configurer the node |  Open (or create) node-config.yaml in editor (Atom, VSCode, Github, etc.)   |  See the example node-config.yaml below  |
+| Check your ip address (public) this goes into your node-config.yaml | ```curl ifconfig.me``` | 14.0.17.9 |
+| Configure the node |  Open (or create) node-config.yaml in editor (Atom, VSCode, Github, etc.)   |  See the example node-config.yaml below  |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
-| Start (run) jormungandr node| ```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
-| Open a new command line window | mouse over - shell > new window (or command + N)| new terminal opens  |
+| Start (run) Jormungandr node| ```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+
+>Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml. Also check your ports to make sure they are pointing to the right ones. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` and change the port 3101 to 8443 you will get an error. 
+
+|  | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
+| ------------- | ------------- | -------------  |
+| Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
 | Check the node for current blockchain height | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0-lastBlockDate: "217.22760"-lastBlockFees:    |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
@@ -215,6 +225,7 @@ The Official reference
 | ---      | ---       |
 | Install from source    | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-install-from-source       |  |
 | Setup a Jormungandr Node (Shelley testnet)   | https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(v-0.5.0)       |
+|Setup a passive Node |https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html|
 | Connecting the Nodes    | https://testnet.iohkdev.io/cardano/shelley/get-started/connecting-the-nodes/       |
 | Testing Transactions    | https://testnet.iohkdev.io/cardano/shelley/get-started/testing-transactions/       |
 | Get $ADA testnet coins     | https://testnet.iohkdev.io/shelley/tools/faucet/       |
