@@ -75,19 +75,13 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
 | List files and folders | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | Go to the IOHK website to get ADA testnet coins from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
-
-
-||||
-| ------------- | ------------- | -------------  |
-| Edit file permission to execute command | ```chmod +x faucet-send-certificate.sh``` | makes it executable  |
-| Edit permission to execute command| ```chmod +x faucet-send-money.sh``` | makes it executable  |
-| Edit permission to execute command | ```chmod +x create-account-and-delegate.sh``` | makes it executable  |
-| List files to check (execute) permissions | ```ls -l``` | list of all your files and folders |
-| Check if you are connecting to nodes | ```netstat -a grep ESTABLISHED``` [netstat reference here](https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l) | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
 | Check your account address to see your coins | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0-delegation:pools:[]value: 250000000000 |
-| Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
-| Make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte...8037 |
-| Make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypEXAPLEztce38ndejvsrel8037 jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
+|Send tokens to reciever account|https://github.com/input-output-hk/shelley-testnet/wiki/How-to-send-funds-using-s||
+
+Delegate tokens to a Stake pool. 
+https://github.com/input-output-hk/shelley-testnet/wiki/How-to-delegate-Account's-stake-using-script
+
+Check the delegated tokens
 
 
 Get your Stake pool key and cert
@@ -101,6 +95,20 @@ Get your Stake pool key and cert
 | Make a public stakepool key from secret | ```cat stake_pool_kes.prv jcli key to-public > stake_pool_kes.pub``` |
 
 
+
+
+
+
+|on hold|on hold||
+| ------------- | ------------- | -------------  |
+| Edit file permission to execute command | ```chmod +x faucet-send-certificate.sh``` | makes it executable  |
+| Edit permission to execute command| ```chmod +x faucet-send-money.sh``` | makes it executable  |
+| Edit permission to execute command | ```chmod +x create-account-and-delegate.sh``` | makes it executable  |
+| List files to check (execute) permissions | ```ls -l``` | list of all your files and folders |
+| Check if you are connecting to nodes | ```netstat -a grep ESTABLISHED``` [netstat reference here](https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l) | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
+| Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
+| Make a secret key from scratch | ```jcli key generate --type=Ed25519```| ed25519_sk1s673ccqrrte...8037 |
+| Make a public key from secret key| ```echo ed25519_sk1s673ccqrrte42cc24y43fehxypEXAPLEztce38ndejvsrel8037 jcli key to-public``` | ed25519_pk14pe9kt0kcxql... |
 
 
 
