@@ -38,14 +38,14 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
 | Check the rust version | ```rustc --version``` | rustc 1.38.0 (625451e37 2019-09-23) |
 |Update if old|```rustup update```|
-| Check folder path if Rust fails| ```echo $PATH```| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
+| Check folder path if Rust fails| [```echo $PATH```](https://explainshell.com/explain?cmd=echo+%24PATH)| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | Download Jormungandr | ``` git clone --recurse-submodules https://github.com/input-output-hk/jormungandr ```| Cloning into 'jormungandr'remote: Enumerating objects: 110, done --- Submodule path 'chain-deps': checked out   |
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
 | Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jormungandr```      |          |
 | Check your ip address (public) this goes into your node-config.yaml | [```curl ifconfig.me```](https://ifconfig.me) | 14.0.17.9 |
-| Configure the node |  [Open (or create) node-config.yaml in editor Atom, VSCode, Github, etc.](https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)  |  See the example node-config.yaml below  |
+| Configure the node |  Open (or create) node-config.yaml in editor Atom, VSCode, Github, etc.  |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
 | Start (run) Jormungandr node| ```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 
@@ -65,7 +65,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Edit permission to execute command| ```chmod +x faucet-send-money.sh``` | makes it executable  |
 | Edit permission to execute command | ```chmod +x create-account-and-delegate.sh``` | makes it executable  |
 | List folder check if x (execute) | ```ls -l``` | list of all your files and folders |
-| Check if you are connecting to nodes | ```netstat -a grep ESTABLISHED``` | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
+| Check if you are connecting to nodes | ```netstat -a grep ESTABLISHED``` [netstat ](https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l) | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
 | Go to the IOHK website to get ADA testnet coins from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your coins | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0-delegation:pools:[]value: 250000000000 |
 | Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
