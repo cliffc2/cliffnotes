@@ -7,13 +7,13 @@ _This is currently under review and construction_ 10-3-2019 \
 Technical support and questions are welcome here. And here:
 https://github.com/input-output-hk/shelley-testnet
 
-
+This 101 is a supplemental guide to this \
 https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(--v0.5.0)
 
 >Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.)
 So we need that programming language to translate our logic into machine language; 1's and 0's. 
 
-* To do list (mostly harmless and )
+* To do list (mostly harmless)
   * load Rust (using rustup command)
   * load Jormungandr program (the ring of computers around the globe)
   * load jcli (Jormungandr Command Line Interface - JCLI)
@@ -40,6 +40,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 |Update if old|```rustup update```|
 | Check folder path if Rust fails| [```echo $PATH```](https://explainshell.com/explain?cmd=echo+%24PATH)| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | Download Jormungandr | ``` git clone --recurse-submodules https://github.com/input-output-hk/jormungandr ```| Cloning into 'jormungandr'remote: Enumerating objects: 110, done --- Submodule path 'chain-deps': checked out   |
+| Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:jormungandr cliff$  |
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
@@ -57,9 +58,16 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Check the node for current blockchain height | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0-lastBlockDate: "217.22760"-lastBlockFees:    |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
+
+
+>Now we will create a new account. [revised IOHK Documentation here](https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script)
+ There are some [New scripts](https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/createAddress.sh) if you want to skip the manual account and key making.
+
+||Make an Account manual|
+| ------------- | ------------- | -------------  |
 | Make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | ed25519e_sk1vqsf2dh3rlg2....  |
-| Make a public key from secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
-| Make an account address | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
+| Make a public key from the secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
+| Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
 | List folder | ```ls -l``` | list of all your files and folders |
 | Edit file permission to execute command | ```chmod +x faucet-send-certificate.sh``` | makes it executable  |
 | Edit permission to execute command| ```chmod +x faucet-send-money.sh``` | makes it executable  |
