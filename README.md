@@ -23,6 +23,9 @@ So we need that programming language to translate our logic into machine languag
   * edit node-config.yaml (your computer's IP info)
   * make public keys from secret keys (to receive funds)
   * check node is in 'sync'
+  * get tokens from faucet
+  * send tokens to another account
+  * delegate stake to pool
   * make stake pool keys (4)
   * make stake pool certificate
   * get node id
