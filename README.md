@@ -78,7 +78,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Make an account address from script|https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script||
 | List files and folders | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | Go to the IOHK website to get ADA testnet tokens from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
-| Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0-delegation:pools:[]value: 250000000000 |
+| Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
 | Send tokens to account|https://input-output-hk.github.io/jormungandr/jcli/transaction.html https://github.com/input-output-hk/shelley-testnet/wiki/How-to-send-funds-using-script||
 
 Delegate tokens to a Stake pool. 
