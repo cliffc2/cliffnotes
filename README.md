@@ -4,14 +4,13 @@ cliffc notes
 Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
 
 _This is currently under review and construction_ 10-3-2019 \
-Technical support and questions are welcome here. And here:
+Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
 https://github.com/input-output-hk/shelley-testnet
 
 This 101 is a supplemental guide to this \
 https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(--v0.5.0)
 
->Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.)
-So we need that programming language to translate our logic into machine language; 1's and 0's. 
+>Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.). 
 
 * To do list (mostly harmless)
   * load Rust (using rustup command)
@@ -76,6 +75,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | ed25519e_sk1vqsf2dh3rlg2....  |
 | Make a public key from the secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
 | Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
+| Make an account address from script|https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script||
 | List files and folders | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | Go to the IOHK website to get ADA testnet tokens from the faucet| https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0-delegation:pools:[]value: 250000000000 |
