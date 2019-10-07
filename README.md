@@ -16,7 +16,7 @@ https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungan
   * load Rust (using rustup command)
   * load jormungandr program (the ring of computers around the globe)
   * load jcli (Jormungandr Command Line Interface - JCLI)
-  * load sqlite (for temporary blockchain database)
+  * load sqlite (if not loaded - for temporary blockchain database)
   * edit port and check ip addresses
   * make folders (for temporary blockchain database)
   * edit node-config.yaml (your computer's IP info)
@@ -37,7 +37,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-|Install Rust (linked to website)|[```curl https://sh.rustup.rs -sSf sh```](https://www.rust-lang.org/tools/install)|
+|Install Rust (command linked to website)|[```curl https://sh.rustup.rs -sSf | sh```](https://www.rust-lang.org/tools/install)|
 | Load Rust  | ```rustup install stable``` | info: checking for self-updates |
 | Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
 | Check the rust version | ```rustc --version``` | rustc 1.38.0 (625451e37 2019-09-23) |
