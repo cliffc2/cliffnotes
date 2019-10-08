@@ -111,8 +111,7 @@ storage: "/tmp/jormungandr"
 | Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
 | Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/send-money.sh ```send-money.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` |
-Delegate tokens to a Stake pool. 
-https://github.com/input-output-hk/shelley-testnet/wiki/How-to-delegate-Account's-stake-using-script
+Delegate tokens to a Stake pool. | Now we can delegate using a script. https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/delegate-account.sh ``` delegate-account.sh <STAKE_POOL_ID> <REST-LISTEN-PORT> <ACCOUNT-SK> ```Here is the IOHK reference https://github.com/input-output-hk/shelley-testnet/wiki/How-to-delegate-Account  |
 
 Check the delegated tokens
 
