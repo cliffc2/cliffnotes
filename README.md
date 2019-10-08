@@ -116,7 +116,7 @@ Delegate tokens to a Stake pool. | Now we can delegate using a script. https://g
 Check the delegated tokens
 
 
-Get your Stake pool key and cert
+Create a Stake pool (key and cert) by hand
 ---
 
 |   | OSX Terminal |
