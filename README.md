@@ -49,7 +49,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
 | Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jormungandr```      |   this path needs to be in your node-config.yaml (see below)     |
-| Check your ip address (public) this goes into your node-config.yaml | [```curl ifconfig.me```](https://ifconfig.me) | 143.0.173.9 |
+| Check your ip address (public) this goes into your node-config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
 | Configure the node |  Open (or create) node-config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 
 >Example node-config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports i.e. 3101, storage folder needs to match also.)
@@ -189,7 +189,7 @@ How to update (get the new) Jormungandr version with git
 
 
 
-Other commands
+Other tools and commands
 ---
 
 | Other commands | OSX Terminal Command |
@@ -208,8 +208,9 @@ Other commands
 | Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 |Shutdown a Node (FYI) |```jcli rest v0 shutdown get -h http://127.0.0.1:3101/api```|
 | How to stop the command line if | (ctrl)+c |
-
-
+|ulimit error (tbd) |```launchctl limit maxfiles``` https://forum.aeternity.com/t/solved-problems-setting-up-a-node-on-osx-mojave/1678 |
+|run debug |```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=debug``` |
+|find your public ip address|```dig +short myip.opendns.com @resolver1.opendns.com```|
 ---
 
 
@@ -231,13 +232,13 @@ jcli rest v0 utxo get --host "http://127.0.0.1:3101/api"
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
 
-or you can use ```curl http://127.0.0.1:3101/api/v0/node/stats ``` 
+or you can use ```curl http://127.0.0.1:3101/api/v0/node/stats``` but there are security risks.  
 
 
 ------
 
 
-Example of Genesis.yaml file (this need verification)
+Example of Genesis.yaml file (to be verified - NIX selfnode)
 ---
 
 ```
