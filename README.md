@@ -37,12 +37,12 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-|Install Rust (command linked to website)|[```curl https://sh.rustup.rs -sSf \| sh```](https://www.rust-lang.org/tools/install)|
-| Load Rust path | ```source $HOME/.cargo/env``` | loads rustup path to bash_profile |
+|Download Rust (command linked to website)|[```curl https://sh.rustup.rs -sSf \| sh```](https://www.rust-lang.org/tools/install)|
+| Create Rust path | ```source $HOME/.cargo/env``` | loads rustup path to bash_profile |
 | Load Rust  | ```rustup install stable``` | info: checking for self-updates |
-| Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
-| Check the rust version | ```rustc --version``` | rustc 1.38.0 (625451e37 2019-09-23) |
-|Update if old|```rustup update```|
+| Load Default  | ```rustup default stable```  | info: default toolchain set to 'stable-x86_64-apple-darwin' |
+| Check the Rust version | ```rustc --version``` | rustc 1.38.0 (625451e37 2019-09-23) |
+| Update if old|```rustup update```|
 | Check folder path if Rust fails| [```echo $PATH```](https://explainshell.com/explain?cmd=echo+%24PATH)| /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin  |
 | Download Jormungandr | ``` git clone --recurse-submodules https://github.com/input-output-hk/jormungandr ```| Cloning into 'jormungandr'remote: Enumerating objects: 110, done --- Submodule path 'chain-deps': checked out   |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:jormungandr cliff$  |
@@ -282,7 +282,7 @@ https://github.com/input-output-hk/shelley-testnet
 
 
 
-| kyleo quickstart | website |
+| Kyleo quickstart | website |
 | ------------- | ------------- |
 | build/start node: | https://lovelace.community/testnet-shelley.html  |
 | create account/get ada:  | https://lovelace.community/testnet-shelley-faucet.html |
