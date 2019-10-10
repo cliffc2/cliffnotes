@@ -1,6 +1,6 @@
 # Shelley Testnet 101 on OSX
 cliffc notes
->Oct 2, 2019 - This is a quick list to load and run Jormungandr 
+>Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
 Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
 
 _This is currently under review and construction_ 10-3-2019 \
