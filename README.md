@@ -1,13 +1,13 @@
-# Shelley Testnet 101 on OSX
+# Shelley Testnet checklist on OSX
 cliffc notes
 >Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
-Alpha 0.5.5 (x) from scratch (source).  I'm on a mac now. I'll try to add Win, Ubuntu, and Nix reviews.  References to other guides are below.  
+Alpha 0.5.5 (x) from scratch (source).  I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
 
 _This is currently under review and construction_ 10-3-2019 \
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
 https://github.com/input-output-hk/shelley-testnet
 
-This 101 is a supplemental guide to this \
+This is a supplemental guide to this \
 https://github.com/input-output-hk/shelley-testnet/wiki/How-to-setup-a-Jormungandr-Networking--node-(--v0.5.0)
 
 >Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.). 
