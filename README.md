@@ -186,10 +186,20 @@ How to update (get the new) Jormungandr version with git
 | ------------- | ------------- |
 | Load new version  | ``` git checkout v0.5.5 ```  |
 | Copy from Github  | ```git pull``` |
-| Check submodules  | ```git submodule update --init --recursive```  |
+| Check submodules  | ```git submodule update --init --recursive```|
+| Clean (Optional) |``cargo clean ``|
+|Update |``cargo update``|
 | Reload Jormungandr old to new | ```cargo install --path jormungandr --force```  |
 | Reload jcli old to new |```cargo install --path jcli --force```  |
 
+
+How to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it like this
+---
+
+| Git something | OSX Terminal Command |
+| ------------- | ------------- |
+| Load new version  | ``` git fetch origin ```  |
+| Reset  | ```git reset --hard origin/master``` |
 
 
 Other tools and commands
