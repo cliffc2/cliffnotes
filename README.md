@@ -1,5 +1,5 @@
 # Shelley Testnet command list on OSX
-cliffc notes
+cliffc notes test
 >Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
 Alpha 0.5.5 (x) from scratch (source).  I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
 
