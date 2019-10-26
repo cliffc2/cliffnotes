@@ -65,23 +65,25 @@ log:
   output: "stderr"
 p2p:
   listen_address: "/ip4/0.0.0.0/tcp/3100"
-  public_address: 
-  topics_of_interest:
-    blocks: "high"
-    messages: "high"
   trusted_peers:
-
-    /ip4/3.123.177.192/tcp/3000,
-    /ip4/3.123.155.47/tcp/3000,
-    /ip4/52.57.157.167/tcp/3000,
-    /ip4/3.112.185.217/tcp/3000,
-    /ip4/18.140.134.230/tcp/3000,
-    /ip4/18.139.40.4/tcp/3000,
-    /ip4/3.115.57.216/tcp/3000,
-    
+   - address: "/ip4/13.230.137.72/tcp/3000"
+     id: ed25519_pk1w6f2sclsauhfd6r9ydgvn0yvpvg4p3x3u2m2n7thknwghrfpdu5sgvrql9           
+   - address: "/ip4/13.230.48.191/tcp/3000"
+     id: ed25519_pk1lzrdh0pcmhwcnqdl5cgcu7n0c76pm7g7p6pdey7wup54vz32gy6qlz5vnq        
+   - address: "/ip4/18.196.168.220/tcp/3000"
+     id: ed25519_pk1uufkgu0t9xm8ry04wnddtnku5gjg8typf5z6ehh65uc6nz4j8n4spq0xrl
+   - address: "/ip4/3.124.132.123/tcp/3000"
+     id: ed25519_pk14tqkqnz3eydn0c8c8gmmyzxgnf2dztpy5dnrx09mhfzv0dh93s3qszqgpc
+   - address: "/ip4/18.184.181.30/tcp/3000"
+     id: ed25519_pk178ge2jn6c40vgmrewgmg26nmtda47nk2jncukzj327mp3a9g2qzss2d44f
+   - address: "/ip4/184.169.162.15/tcp/3000"
+     id: ed25519_pk1nk0ne8ez66w5tp2g8ctcakthjpz89eveyg0egcpylenhet83n0sq2jqz8q
+   - address: "/ip4/13.56.87.134/tcp/3000"
+     id: ed25519_pk1ce450zrtn04eaevcn9csz0thpjuhxrysdrq6qlr9pq7e0wd842nsxy6r5k
+     
 rest:
   listen: "127.0.0.1:3101"
-storage: "/tmp/jormungandr" 
+storage: "/tmp/jormungandr2"  
  ```
 
 -----
