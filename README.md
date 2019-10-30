@@ -227,7 +227,7 @@ Other tools and commands
 |Shutdown a Node (FYI) |```jcli rest v0 shutdown get -h http://127.0.0.1:3101/api```|
 | How to stop the command line if | (ctrl)+c |
 |ulimit error (tbd) |```launchctl limit maxfiles``` https://forum.aeternity.com/t/solved-problems-setting-up-a-node-on-osx-mojave/1678 |
-|run debug |```jormungandr --config node-config.yaml --genesis-block-hash adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 --log-level=debug``` |
+|run debug |```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=debug``` |
 |find your public ip address|```dig +short myip.opendns.com @resolver1.opendns.com```|
 ---
 
