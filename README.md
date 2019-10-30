@@ -66,7 +66,6 @@ log:
   level: info
   output: stderr
 p2p:
-<<<<<<< HEAD
   listen_address: "/ip4/0.0.0.0/tcp/3100"
   trusted_peers:
    - address: "/ip4/13.230.137.72/tcp/3000"
@@ -82,48 +81,16 @@ p2p:
    - address: "/ip4/184.169.162.15/tcp/3000"
      id: ed25519_pk1nk0ne8ez66w5tp2g8ctcakthjpz89eveyg0egcpylenhet83n0sq2jqz8q
    - address: "/ip4/13.56.87.134/tcp/3000"
-<<<<<<< HEAD
      id: ed25519_pk1ce450zrtn04eaevcn9csz0thpjuhxrysdrq6qlr9pq7e0wd842nsxy6r5k
      
 rest:
   listen: "127.0.0.1:3101"
-storage: "/tmp/jormungandr2"  
-=======
-  trusted_peers:
-  - address: "/ip4/3.115.194.22/tcp/3000"
-    id: ed25519_pk1npsal4j9p9nlfs0fsmfjyga9uqk5gcslyuvxy6pexxr0j34j83rsf98wl2
-  - address: "/ip4/13.113.10.64/tcp/3000"
-    id: ed25519_pk16pw2st5wgx4558c6temj8tzv0pqc37qqjpy53fstdyzwxaypveys3qcpfl
-  - address: "/ip4/52.57.214.174/tcp/3000"
-    id: ed25519_pk1v4cj0edgmp8f2m5gex85jglrs2ruvu4z7xgy8fvhr0ma2lmyhtyszxtejz
-  - address: "/ip4/3.120.96.93/tcp/3000"
-    id: ed25519_pk10gmg0zkxpuzkghxc39n3a646pdru6xc24rch987cgw7zq5pmytmszjdmvh
-  - address: "/ip4/52.28.134.8/tcp/3000"
-    id: ed25519_pk1unu66eej6h6uxv4j4e9crfarnm6jknmtx9eknvq5vzsqpq6a9vxqr78xrw
-  - address: "/ip4/13.52.208.132/tcp/3000"
-    id: ed25519_pk15ppd5xlg6tylamskqkxh4rzum26w9acph8gzg86w4dd9a88qpjms26g5q9
-  - address: "/ip4/54.153.19.202/tcp/3000"
-    id: ed25519_pk1j9nj2u0amlg28k27pw24hre0vtyp3ge0xhq6h9mxwqeur48u463s0crpfk
-rest:
-  listen: 127.0.0.1:3001
-storage: /tmp/jormungandr
- 
->>>>>>> 74a322816527cc6892ae1c0cb0d524a848bb7cf5
+storage: "/tmp/jormungandr"  
+
  ```
 
 -----
 >Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6 testnet is adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 
-=======
-     id: ed25519_pk1ce450zrtn04eaevcn9csz0thpjuhxrysdrq6qlr9pq7e0wd842nsxy6r5k 
-rest:
-  listen: "127.0.0.1:3101"
-storage: "/tmp/jormungandr2"
- 
- ```
-
------
->Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using 
->>>>>>> 4f7d32b698cb35c9e8bdea5fdfe110ae55fb6fba
 for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info```
 
 
