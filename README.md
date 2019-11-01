@@ -1,7 +1,7 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
 >Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
-Alpha 0.5.5 (x) from scratch (source).  I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
+Alpha 0.x.x from scratch (source). Binaries are here. https://github.com/input-output-hk/jormungandr/releases/ I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
 
 _This is currently under review and construction_ 10-3-2019 \
 MOST CURRENT BINARIES 0.7.0rc2
@@ -103,8 +103,8 @@ for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57
 | Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3101/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
 | You can also check from your browser. (check your port)|http://127.0.0.1:3101/api/v0/stake_pools||
 
->Now we will create a new account. [revised IOHK Documentation here](https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script)
- There are some [New scripts](https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/createAddress.sh) if you want to skip the manual account and key making.
+>Now we will create a new account. [revised IOHK Documentation here](https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Testnet)
+ There are some [New scripts](https://github.com/input-output-hk/shelley-testnet/tree/master/scripts) if you want to skip the manual account and key making.
 
 |Make an Account by hand|Type these commands into the OSX computer Terminal (computer_name:~ account$)| Output example |
 | ------------- | ------------- | -------------  |
