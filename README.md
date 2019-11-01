@@ -1,7 +1,7 @@
 # Shelley Testnet command list on OSX
 cliffc notes
 >Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
-Alpha 0.5.5 (x) from scratch (source).  I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
+Alpha 0.x.x from scratch (source). Binaries are here. https://github.com/input-output-hk/jormungandr/releases/ I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
 
 _This is currently under review and construction_ 10-3-2019 \
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
@@ -93,14 +93,14 @@ for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57
 
 | Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-| Start (run) Jormungandr Node | ```ormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Start (run) Jormungandr Node | ```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
 | Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
 | Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3101/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
 | You can also check from your browser. (check your port)|http://127.0.0.1:3101/api/v0/stake_pools||
 
->Now we will create a new account. [revised IOHK Documentation here](https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script)
+>Now we will create a new account. [revised IOHK Documentation here](https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Testnet)
  There are some [New scripts](https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/createAddress.sh) if you want to skip the manual account and key making.
 
 |Make an Account by hand|Type these commands into the OSX computer Terminal (computer_name:~ account$)| Output example |
