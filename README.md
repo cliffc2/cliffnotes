@@ -1,11 +1,11 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
-Alpha 0.x.x from scratch (source). Binaries are here. https://github.com/input-output-hk/jormungandr/releases/ I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
+>Nov. 2 2019 - This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
 
 _This is currently under review and construction_ 10-3-2019 \
 MOST CURRENT BINARIES 0.7.0rc2
-https://github.com/input-output-hk/jormungandr/releases/
+https://github.com/input-output-hk/jormungandr/releases/  
+
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
 https://iohk.zendesk.com/hc/en-us
 
