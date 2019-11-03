@@ -129,7 +129,7 @@ REST_PORT: 3101...
 
 |   | Delegate script |
 | ------------- | ------------- |
-| Delegate tokens to a Stake pool. | Now we can delegate using a script. https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ``` delegate-account.sh <STAKE_POOL_ID> <REST-LISTEN-PORT> <ACCOUNT-SK> ```Here is the IOHK reference https://github.com/input-output-hk/shelley-testnet/tree/master/scripts  |
+| Delegate tokens to a Stake pool. | Now we can delegate using a script. https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ``` delegate-account.sh <STAKE_POOL_ID> <REST-LISTEN-PORT> <ACCOUNT-SK> ```Here is the IOHK Zendesk reference https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Testnet  |
 
 
 
