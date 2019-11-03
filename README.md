@@ -189,7 +189,7 @@ How to update (get the new) Jormungandr version with git
 
 | Git something | OSX Terminal Command |
 | ------------- | ------------- |
-| Load new version  | ``` git checkout v0.5.5 ```  |
+| Load new version  | ``` git checkout v0.x.x ```  |
 | Copy from Github  | ```git pull``` |
 | Check submodules  | ```git submodule update --init --recursive```|
 | Clean (Optional) |``cargo clean ``|
