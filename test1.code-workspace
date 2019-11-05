@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "GitHub",
+			"path": "/Users/cliff/Documents/GitHub"
+		},
+		{
+			"name": "jormungandr",
+			"path": "/Users/cliff/jormungandr"
+		},
+		{
+			"name": "jormungandr-nix",
+			"path": "/Users/cliff/Documents/GitHub/jormungandr-nix"
+		}
+	],
+	"settings": {}
+}

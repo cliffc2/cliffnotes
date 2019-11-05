@@ -1,11 +1,11 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Oct 2, 2019 - This is a quick check list to load and run Jormungandr 
-Alpha 0.x.x from scratch (source). Binaries are here. https://github.com/input-output-hk/jormungandr/releases/ I'm on a old mac. This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
+>Nov. 2 2019 - This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
 
 _This is currently under review and construction_ 10-3-2019 \
 MOST CURRENT BINARIES 0.7.0rc2
-https://github.com/input-output-hk/jormungandr/releases/
+https://github.com/input-output-hk/jormungandr/releases/  
+
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
 https://iohk.zendesk.com/hc/en-us
 
@@ -121,7 +121,7 @@ for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57
 | List files and folders in jormungandr | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
-| Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/send-money.sh ```send-money.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` | |
+| Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ```send-money.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` | |
 | Check the message log to see tx |```jcli rest v0 message logs --host "http://127.0.0.1:3101/api```|
 
 >OUTPUT
@@ -132,7 +132,7 @@ REST_PORT: 3101...
 
 |   | Delegate script |
 | ------------- | ------------- |
-| Delegate tokens to a Stake pool. | Now we can delegate using a script. https://github.com/input-output-hk/shelley-testnet/blob/master/scripts/delegate-account.sh ``` delegate-account.sh <STAKE_POOL_ID> <REST-LISTEN-PORT> <ACCOUNT-SK> ```Here is the IOHK reference https://github.com/input-output-hk/shelley-testnet/wiki/How-to-delegate-Account  |
+| Delegate tokens to a Stake pool. | Now we can delegate using a script. https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ``` delegate-account.sh <STAKE_POOL_ID> <REST-LISTEN-PORT> <ACCOUNT-SK> ```Here is the IOHK Zendesk reference https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Testnet  |
 
 
 
@@ -192,7 +192,7 @@ How to update (get the new) Jormungandr version with git
 
 | Git something | OSX Terminal Command |
 | ------------- | ------------- |
-| Load new version  | ``` git checkout v0.5.5 ```  |
+| Load new version  | ``` git checkout v0.x.x ```  |
 | Copy from Github  | ```git pull``` |
 | Check submodules  | ```git submodule update --init --recursive```|
 | Clean (Optional) |``cargo clean ``|
