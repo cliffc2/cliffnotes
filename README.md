@@ -111,9 +111,10 @@ for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57
 | Start (run) Jormungandr Passive Node | ```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
-|Now we can make keys| new key making script here so you can skip the next 3 steps. https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script||
-|Check permissions|```ls -l```||
-|Change permissions|```chmod +x createAddress.sh```||
+|Now we can make keys| note - new key making script here so you can skip to the faucet step. https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script|```createAddress.sh account```|
+|skip|Check permissions|```ls -l```|
+|skip|Change permissions|```chmod +x createAddress.sh```|
+|skip|run script ```createAddress.sh account```|```createAddress.sh account```|
 | Make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | ed25519e_sk1vqsf2dh3rlg2....  |
 | Make a public key from the secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
 | Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
