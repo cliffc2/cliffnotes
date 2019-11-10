@@ -8,12 +8,85 @@ TO LOAD JORMUNGANDR FROM THE BINARIES GO HERE
 
 https://github.com/input-output-hk/jormungandr/releases/ 
 
-After you load the binaries, you will need to make a jormungandr folder and a temp/storage folder then create the node-config.yaml (save file in the jormungandr folder - you can skip the down to mkdir ~/temp below)
+After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (save file in the jormungandr folder).
+
+
+
+| Steps (for binaries install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
+| ------------- | ------------- | -------------  |
+| Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this is where you find your jormungandr program    |
+| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/temp/storage```      |   this path needs to be in your node-config.yaml (see below)     |
+| Check your ip address (public) this goes into your node-config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
+| Configure the node |  Open (or create) node-config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
+
+>Example node-config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports (like an telephone extension number) i.e. 3101, storage folder location needs to match also.)
+---
+
+
+``` 
+log:
+ format: plain
+ level: info
+ output: stderr
+p2p:
+ listen_address: /ip4/0.0.0.0/tcp/9000
+ public_address: /ip4/x.x.x.x/tcp/9000 #you need to change this ip address - get it from www.ifconfig.me website
+ topics_of_interest:
+    blocks: high
+    messages: high
+ trusted_peers:
+   - address: "/ip4/13.230.137.72/tcp/3000"
+     id: e4fda5a674f0838b64cacf6d22bbae38594d7903aba2226f
+   - address: "/ip4/18.196.168.220/tcp/3000"
+     id: 74a9949645cdb06d0358da127e897cbb0a7b92a1d9db8e70
+   - address: "/ip4/3.124.132.123/tcp/3000"
+     id: 431214988b71f3da55a342977fea1f3d8cba460d031a839c
+   - address: "/ip4/18.184.181.30/tcp/3000"
+     id: e9cf7b29019e30d01a658abd32403db85269fe907819949d
+   - address: "/ip4/13.230.48.191/tcp/3000"
+     id: c32e4e7b9e6541ce124a4bd7a990753df4183ed65ac59e34
+   - address: "/ip4/184.169.162.15/tcp/3000"
+     id: acaba9c8c4d8ca68ac8bad5fe9bd3a1ae8de13816f40697c
+   - address: "/ip4/13.56.87.134/tcp/3000"
+     id: bcfc82c9660e28d4dcb4d1c8a390350b18d04496c2ac8474
+rest:
+ listen: 127.0.0.1:3101  #you need to check this port when using jcli command
+storage: "temp/storage" #you need to check this location
+explorer:
+ enabled: false
+mempool:
+  fragment_ttl: 30m
+  log_ttl: 30m
+  garbage_collection_interval: 30m
+leadership:
+  log_ttl: 30m
+  garbage_collection_interval: 30m 
+
+ ```
+
+-----
+>Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3100 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
+for 0.7.0 rc7 
+
+
+| Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
+| ------------- | ------------- | -------------  |
+| Start (run) Jormungandr Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
+| Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
+| Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
+| Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3101/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
+| You can also check from your browser. (check your port)|http://127.0.0.1:3101/api/v0/stake_pools||
 
 
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
 https://iohk.zendesk.com/hc/en-us
 
+
+THE END OF THE BINARIES LOAD, RUN, AND CHECK NODE STATUS.
+
+
+#  TO LOAD JORMUNGANDR FROM SOURCE CODE (INTERMEDIATE SKILL LEVEL)
 
 >Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.). 
 
@@ -57,73 +130,6 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
 
 
-So if you skipped the load from source you will need to create 2 folders (jormungandr and temp/storage) and 1 file (node-config.yaml)
-
-| Steps (for binary install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
-| ------------- | ------------- | -------------  |
-| Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this is where you find your jormungandr program    |
-| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/temp/storage```      |   this path needs to be in your node-config.yaml (see below)     |
-| Check your ip address (public) this goes into your node-config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
-| Configure the node |  Open (or create) node-config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
-
->Example node-config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports i.e. 3101, storage folder needs to match also.)
----
-
-
-``` 
-log:
- format: plain
- level: info
- output: stderr
-p2p:
- listen_address: /ip4/0.0.0.0/tcp/9000
- public_address: /ip4/x.x.x.x/tcp/9000 #you need to change this ip address - go to the website ifconfig.me
- topics_of_interest:
-    blocks: high
-    messages: high
- trusted_peers:
-   - address: "/ip4/13.230.137.72/tcp/3000"
-     id: e4fda5a674f0838b64cacf6d22bbae38594d7903aba2226f
-   - address: "/ip4/18.196.168.220/tcp/3000"
-     id: 74a9949645cdb06d0358da127e897cbb0a7b92a1d9db8e70
-   - address: "/ip4/3.124.132.123/tcp/3000"
-     id: 431214988b71f3da55a342977fea1f3d8cba460d031a839c
-   - address: "/ip4/18.184.181.30/tcp/3000"
-     id: e9cf7b29019e30d01a658abd32403db85269fe907819949d
-   - address: "/ip4/13.230.48.191/tcp/3000"
-     id: c32e4e7b9e6541ce124a4bd7a990753df4183ed65ac59e34
-   - address: "/ip4/184.169.162.15/tcp/3000"
-     id: acaba9c8c4d8ca68ac8bad5fe9bd3a1ae8de13816f40697c
-   - address: "/ip4/13.56.87.134/tcp/3000"
-     id: bcfc82c9660e28d4dcb4d1c8a390350b18d04496c2ac8474
-rest:
- listen: 127.0.0.1:3101  #you need to check this port when using jcli
-storage: "temp/storage" #you need to change this
-explorer:
- enabled: false
-mempool:
-  fragment_ttl: 30m
-  log_ttl: 30m
-  garbage_collection_interval: 30m
-leadership:
-  log_ttl: 30m
-  garbage_collection_interval: 30m 
-
- ```
-
------
->Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
-for 0.7.0 rc7 ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ```
-
-
-| Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
-| ------------- | ------------- | -------------  |
-| Start (run) Jormungandr Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
-| Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
-| Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
-| Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
-| Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3101/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
-| You can also check from your browser. (check your port)|http://127.0.0.1:3101/api/v0/stake_pools||
 
 >Now we will create a new account. [revised IOHK Documentation here](https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Testnet)
  There are some [New scripts](https://github.com/input-output-hk/shelley-testnet/tree/master/scripts) if you want to skip the manual account and key making.
