@@ -2,15 +2,19 @@
 cliffc notes test
 >Nov. 10 2019 - These are my notes to load jormungandr. Feel free to experiment. References to other guides are below. 
 
-_This is currently under review and construction_ 10-3-2019 \
-MOST CURRENT BINARIES 0.7.0rc7
-https://github.com/input-output-hk/jormungandr/releases/  
+_This is currently under review and construction_ from 10-3-2019 \
+
+TO LOAD JORMUNGANDR FROM THE BINARIES GO HERE 
+
+https://github.com/input-output-hk/jormungandr/releases/ 
+
+after you load the binaries, you will need to make a jormungandr folder and a temp folder then copy the node-config.yaml (save file in the jormungandr folder)
+(you can skip the down to mkdir ~/temp below)
+
 
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
 https://iohk.zendesk.com/hc/en-us
 
-This is a supplemental guide to this \
-https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Testnet
 
 >Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.). 
 
