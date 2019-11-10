@@ -62,7 +62,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (for binary install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
 | ------------- | ------------- | -------------  |
-| Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this path needs to be in your node-config.yaml (see below)     |
+| Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this is where you find your jormungandr program    |
 | Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/temp/storage```      |   this path needs to be in your node-config.yaml (see below)     |
 | Check your ip address (public) this goes into your node-config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
 | Configure the node |  Open (or create) node-config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
