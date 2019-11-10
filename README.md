@@ -56,7 +56,14 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 |if build fails| load ```xcode-select --install```  | note: **[xcrun: error: invalid active developer path](https://stackoverflow.com/questions/52522565/git-is-not-working-after-macos-update-xcrun-error-invalid-active-developer-pa)** (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
-| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jormungandr```      |   this path needs to be in your node-config.yaml (see below)     |
+
+\
+
+
+| Steps (for binary install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
+| ------------- | ------------- | -------------  |
+| Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this path needs to be in your node-config.yaml (see below)     |
+| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/temp/storage```      |   this path needs to be in your node-config.yaml (see below)     |
 | Check your ip address (public) this goes into your node-config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
 | Configure the node |  Open (or create) node-config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 
@@ -92,7 +99,7 @@ p2p:
      id: bcfc82c9660e28d4dcb4d1c8a390350b18d04496c2ac8474
 rest:
  listen: 127.0.0.1:3101  #you need to check this port when using jcli
-storage: "temp2/storage" #you need to change this
+storage: "temp/storage" #you need to change this
 explorer:
  enabled: false
 mempool:
@@ -107,7 +114,7 @@ leadership:
 
 -----
 >Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
-for 0.7.0 rc1 ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ```
+for 0.7.0 rc7 ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ```
 
 
 | Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
