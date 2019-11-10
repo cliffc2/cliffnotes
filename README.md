@@ -1,9 +1,9 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Nov. 2 2019 - This is to teach and learn about the stake pools of a decentralized POS blockchain. Feel free to experiment. References to other guides are below. [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
+>Nov. 10 2019 - These are my notes to load jormungandr. Feel free to experiment. References to other guides are below. 
 
 _This is currently under review and construction_ 10-3-2019 \
-MOST CURRENT BINARIES 0.7.0rc2
+MOST CURRENT BINARIES 0.7.0rc7
 https://github.com/input-output-hk/jormungandr/releases/  
 
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
@@ -62,41 +62,53 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 ``` 
 log:
-  format: plain
-  level: info
-  output: stderr
+ format: plain
+ level: info
+ output: stderr
 p2p:
-  listen_address: "/ip4/0.0.0.0/tcp/3100"
-  trusted_peers:
+ listen_address: /ip4/0.0.0.0/tcp/9000
+ public_address: /ip4/14.0.175.120/tcp/9000 #you need to change this ip address - go to the website ifconfig.me
+ topics_of_interest:
+    blocks: high
+    messages: high
+ trusted_peers:
    - address: "/ip4/13.230.137.72/tcp/3000"
-     id: ed25519_pk1w6f2sclsauhfd6r9ydgvn0yvpvg4p3x3u2m2n7thknwghrfpdu5sgvrql9           
-   - address: "/ip4/13.230.48.191/tcp/3000"
-     id: ed25519_pk1lzrdh0pcmhwcnqdl5cgcu7n0c76pm7g7p6pdey7wup54vz32gy6qlz5vnq        
+     id: e4fda5a674f0838b64cacf6d22bbae38594d7903aba2226f
    - address: "/ip4/18.196.168.220/tcp/3000"
-     id: ed25519_pk1uufkgu0t9xm8ry04wnddtnku5gjg8typf5z6ehh65uc6nz4j8n4spq0xrl
+     id: 74a9949645cdb06d0358da127e897cbb0a7b92a1d9db8e70
    - address: "/ip4/3.124.132.123/tcp/3000"
-     id: ed25519_pk14tqkqnz3eydn0c8c8gmmyzxgnf2dztpy5dnrx09mhfzv0dh93s3qszqgpc
+     id: 431214988b71f3da55a342977fea1f3d8cba460d031a839c
    - address: "/ip4/18.184.181.30/tcp/3000"
-     id: ed25519_pk178ge2jn6c40vgmrewgmg26nmtda47nk2jncukzj327mp3a9g2qzss2d44f
+     id: e9cf7b29019e30d01a658abd32403db85269fe907819949d
+   - address: "/ip4/13.230.48.191/tcp/3000"
+     id: c32e4e7b9e6541ce124a4bd7a990753df4183ed65ac59e34
    - address: "/ip4/184.169.162.15/tcp/3000"
-     id: ed25519_pk1nk0ne8ez66w5tp2g8ctcakthjpz89eveyg0egcpylenhet83n0sq2jqz8q
+     id: acaba9c8c4d8ca68ac8bad5fe9bd3a1ae8de13816f40697c
    - address: "/ip4/13.56.87.134/tcp/3000"
-     id: ed25519_pk1ce450zrtn04eaevcn9csz0thpjuhxrysdrq6qlr9pq7e0wd842nsxy6r5k
-     
+     id: bcfc82c9660e28d4dcb4d1c8a390350b18d04496c2ac8474
 rest:
-  listen: "127.0.0.1:3101"
-storage: "/tmp/jormungandr"  
+ listen: 127.0.0.1:3101  #you need to check this port when using jcli
+storage: "temp2/storage" #you need to change this
+explorer:
+ enabled: false
+mempool:
+  fragment_ttl: 30m
+  log_ttl: 30m
+  garbage_collection_interval: 30m
+leadership:
+  log_ttl: 30m
+  garbage_collection_interval: 30m 
 
  ```
 
 -----
 >Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6 testnet is adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 
-for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info```
+for 0.7.0 rc1 ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ```
 
 
 | Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-| Start (run) Jormungandr Node | ```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Start (run) Jormungandr Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
 | Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
@@ -108,7 +120,7 @@ for 0.7.0 rc1 ```jormungandr --config node-config.yaml --genesis-block-hash ae57
 
 |Make an Account by hand|Type these commands into the OSX computer Terminal (computer_name:~ account$)| Output example |
 | ------------- | ------------- | -------------  |
-| Start (run) Jormungandr Passive Node | ```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=info``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Start (run) Jormungandr Passive Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 |Now we can make keys| note - new key making script here so you can skip to the faucet step. https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script|```createAddress.sh account```|
@@ -309,3 +321,4 @@ https://github.com/input-output-hk/shelley-testnet
 | delegate to stake pool:| https://lovelace.community/testnet-shelley-delegate.html  |
 
 
+[Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
