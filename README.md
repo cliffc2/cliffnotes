@@ -8,8 +8,7 @@ TO LOAD JORMUNGANDR FROM THE BINARIES GO HERE
 
 https://github.com/input-output-hk/jormungandr/releases/ 
 
-after you load the binaries, you will need to make a jormungandr folder and a temp folder then copy the node-config.yaml (save file in the jormungandr folder)
-(you can skip the down to mkdir ~/temp below)
+After you load the binaries, you will need to make a jormungandr folder and a temp/storage folder then create the node-config.yaml (save file in the jormungandr folder - you can skip the down to mkdir ~/temp below)
 
 
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
@@ -57,8 +56,8 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
 | Check the jcli version | ```jcli -V``` | jcli 0.5.X |
 
-\
 
+So if you skipped the load from source you will need to create 2 folders (jormungandr and temp/storage) and 1 file (node-config.yaml)
 
 | Steps (for binary install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
 | ------------- | ------------- | -------------  |
