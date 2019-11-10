@@ -14,7 +14,7 @@ https://iohk.zendesk.com/hc/en-us/categories/360002383814-Shelley-Networked-Test
 
 >Jormungandr is written in the [Rust programming language](https://github.com/rust-lang.). 
 
-* To do list (mostly harmless)
+* To do list (load from source - not for newbies though mostly harmless)
   * load Rust (using rustup command)
   * load jormungandr program (the ring of computers around the globe)
   * load jcli (Jormungandr Command Line Interface - JCLI)
@@ -67,7 +67,7 @@ log:
  output: stderr
 p2p:
  listen_address: /ip4/0.0.0.0/tcp/9000
- public_address: /ip4/14.0.175.120/tcp/9000 #you need to change this ip address - go to the website ifconfig.me
+ public_address: /ip4/x.x.x.x/tcp/9000 #you need to change this ip address - go to the website ifconfig.me
  topics_of_interest:
     blocks: high
     messages: high
@@ -102,7 +102,7 @@ leadership:
  ```
 
 -----
->Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6 testnet is adbdd5ede31637f6c9bad5c271eec0bc3d0cb9efb86a5b913bb55cba549d0770 
+>Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3000 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
 for 0.7.0 rc1 ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ```
 
 
