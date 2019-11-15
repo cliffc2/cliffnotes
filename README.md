@@ -1,6 +1,6 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Nov. 10 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. 
+>Nov. 15 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. 
 
 _This is currently under review and construction_ from 10-3-2019 \
 
@@ -10,7 +10,7 @@ https://github.com/input-output-hk/jormungandr/releases/
 
 After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (save file in the jormungandr folder).
 
-NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```
+NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
 All the notes below are old examples.
 CHECK THE RECENT BUILDS HERE. THIS WILL CHANGE EVERYDAY. 
 https://hydra.iohk.io/build/1360340
@@ -29,6 +29,7 @@ https://hydra.iohk.io/build/1360340
 
 
 ``` 
+#this is 070rc7 is has been depreciated
 log:
  format: plain
  level: info
