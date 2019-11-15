@@ -10,6 +10,11 @@ https://github.com/input-output-hk/jormungandr/releases/
 
 After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (save file in the jormungandr folder).
 
+NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```
+
+CHECK THE RECENT BUILDS HERE. THIS WILL CHANGE EVERYDAY. 
+https://hydra.iohk.io/build/1360340
+
 
 
 | Steps (for binaries install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
