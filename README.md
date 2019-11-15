@@ -145,7 +145,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Start (run) Jormungandr Passive Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
-|Now we can make keys| note - new key making script here so you can skip to the faucet step. https://github.com/input-output-hk/shelley-testnet/wiki/How-to-create-a-new-Address-using-script|```createAddress.sh account```|
+|Now we can make keys| note - new key making script here so you can skip to the faucet step. https://github.com/input-output-hk/jormungandr-qa/tree/master/scripts|```createAddress.sh account```|
 |skip|Check permissions|```ls -l```|
 |skip|Change permissions|```chmod +x createAddress.sh```|
 |skip|run script ```createAddress.sh account```|```createAddress.sh account```|
