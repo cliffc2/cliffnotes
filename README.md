@@ -2,13 +2,13 @@
 cliffc notes test
 >Nov. 15 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. 
 
-_This is currently under review and construction_ from 10-3-2019 \
+_This is currently under review and construction_ from 10-3-2019 
 
 TO LOAD JORMUNGANDR FROM THE BINARIES GO HERE 
 
 https://github.com/input-output-hk/jormungandr/releases/ 
 
-After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (save file in the jormungandr folder).
+After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (or config.yaml then save the file in the jormungandr folder).
 
 NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
 All the notes below are old examples.
@@ -29,7 +29,58 @@ https://hydra.iohk.io/build/1360340
 
 
 ``` 
-#this is 070rc7 is has been depreciated
+#config.yaml for 0.7.0 nov 20th - there is a new format
+
+{
+  "log": {
+    "format": "plain",
+    "level": "info",
+    "output": "stderr"
+  },
+  "p2p": {
+    "topics_of_interest": {
+      "blocks": "normal",
+      "messages": "low"
+    },
+    "trusted_peers": [
+      {
+        "address": "/ip4/13.230.137.72/tcp/3000",
+        "id": "e4fda5a674f0838b64cacf6d22bbae38594d7903aba2226f"
+      },
+      {
+        "address": "/ip4/13.230.48.191/tcp/3000",
+        "id": "c32e4e7b9e6541ce124a4bd7a990753df4183ed65ac59e34"
+      },
+      {
+        "address": "/ip4/18.196.168.220/tcp/3000",
+        "id": "74a9949645cdb06d0358da127e897cbb0a7b92a1d9db8e70"
+      },
+      {
+        "address": "/ip4/3.124.132.123/tcp/3000",
+        "id": "431214988b71f3da55a342977fea1f3d8cba460d031a839c"
+      },
+      {
+        "address": "/ip4/18.184.181.30/tcp/3000",
+        "id": "e9cf7b29019e30d01a658abd32403db85269fe907819949d"
+      },
+      {
+        "address": "/ip4/184.169.162.15/tcp/3000",
+        "id": "acaba9c8c4d8ca68ac8bad5fe9bd3a1ae8de13816f40697c"
+      },
+      {
+        "address": "/ip4/13.56.87.134/tcp/3000",
+        "id": "bcfc82c9660e28d4dcb4d1c8a390350b18d04496c2ac8474"
+      }
+    ]
+  },
+  "rest": {
+    "listen": "127.0.0.1:3100"
+  }
+}
+
+#end of file
+
+#below is 070rc7 node-config.yaml it has been depreciated - it is here for reference
 log:
  format: plain
  level: info
