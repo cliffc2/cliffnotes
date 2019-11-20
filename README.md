@@ -80,7 +80,9 @@ https://hydra.iohk.io/build/1360340
 
 #end of file
 
-#below is 070rc7 node-config.yaml it has been depreciated - it is here for reference
+```
+Below is 070rc7 node-config.yaml it has been depreciated - it is here for reference
+```
 log:
  format: plain
  level: info
@@ -122,7 +124,7 @@ leadership:
  ```
 
 -----
->Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api ``` but the port is 3100 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
+>Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api ``` but if the port is 3101 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
 for 0.7.0 rc7 
 
 
@@ -204,8 +206,8 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Make a public key from the secret key | ```cat receiver_secret.key jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
 | Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
 | List files and folders in jormungandr | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
-| Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/en/cardano/shelley/tools/faucet/ | it will give you a transaction number  |
-| Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3100/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
+| FAUCET STEP Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/en/cardano/shelley/tools/faucet/ | it will give you a transaction number  |
+| Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3100/api``` (note: you need to check your node-config.yaml (config.yaml) to see what port (i.e. 3101 or 3100) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
 | Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ```send-money.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` | |
 | Check the message log to see tx |```jcli rest v0 message logs --host "http://127.0.0.1:3100/api```|
 
@@ -221,7 +223,7 @@ REST_PORT: 3101...
 
 
 
-Check the delegated tokens - tbc
+Check the delegated tokens - TBC
 
 
 Create a Stake pool (key and cert) by hand
@@ -250,7 +252,7 @@ How to get your stake pool cert (one line command example)
 ```
 jcli certificate new stake-pool-registration --kes-key kes25519-12-pk1q06kvadqp040wzc5acnnv06rjqphnavyf9xfgpf6awjnnptqef9jkk --vrf-key vrf_pk1sesgrk2k6e6rxypkcj855fnnwcs9k5zg62yhqklrzshmlj02qysdhxeqy --owner ed25519_pk14pe9kt0kcxqlj7h8g3ye2lt5mjlph0y08l2jg8u6hgwsag830qd708gl --start-validity 0 --management-threshold 1 --serial 1010101010 > stake_pool.cert
 ```
->This is what is would look like in logical command pieces (the computer only sees one line.)
+>This is what is would look like in separated logical command pieces (the computer only sees one line.)
 
 ```
 jcli certificate new stake-pool-registration 
