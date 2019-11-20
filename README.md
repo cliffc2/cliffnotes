@@ -313,6 +313,7 @@ Other tools and commands
 | Edit permission to execute command| ```chmod +x createAddress.sh``` | makes it executable  |
 | Edit file permission to execute command | ```chmod +x faucet-send-money.sh``` | makes it executable  |
 | Check if you are connecting to nodes | ```netstat -a \| grep ESTABLISHED``` [netstat reference here](https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l) | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
+|Check your public key from your account address|```jcli address info <insert account address here>```|
 | Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
 |Shutdown a Node (FYI) |```jcli rest v0 shutdown get -h http://127.0.0.1:3100/api```|
 | How to stop the command line if | (ctrl)+c |
