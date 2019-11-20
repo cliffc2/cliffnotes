@@ -1,6 +1,6 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Nov. 15 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. 
+>Nov. 20 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. 
 
 _This is currently under review and construction_ from 10-3-2019 
 
@@ -11,8 +11,8 @@ https://github.com/input-output-hk/jormungandr/releases/
 After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (or config.yaml then save the file in the jormungandr folder).
 
 NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
-All the notes below are old examples.
-CHECK THE RECENT BUILDS HERE. THIS WILL CHANGE EVERYDAY. 
+
+CHECK THE RECENT BUILDS HERE. Will try to keep up with the changes
 https://hydra.iohk.io/build/1360340
 
 
@@ -128,12 +128,12 @@ for 0.7.0 rc7
 
 | Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-| Start (run) Jormungandr Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Start (run) Jormungandr Node | ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ``` (note: you need to use the new hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
-| Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
-| Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3101/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
-| Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3101/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
-| You can also check from your browser. (check your port)|http://127.0.0.1:3101/api/v0/stake_pools||
+| Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
+| Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3100/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
+| Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3100/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
+| You can also check from your browser. (check your port)|http://127.0.0.1:3100/api/v0/stake_pools||
 
 
 Technical support and questions are [welcome here on Telegram.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj91KjF9ITlAhWMOnAKHZGiCp0QFjAAegQIARAB&url=https%3A%2F%2Ft.me%2FCardanoStakePoolWorkgroup&usg=AOvVaw2kMgG-ZJbcfxoDS77H893I) And here:
@@ -184,7 +184,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Load Jormungandr | ```cargo install --path jormungandr```| Installing jormungandr v0.5.5 (/Users/cliff/jormungandr/jormungandr |
 |if build fails| load ```xcode-select --install```  | note: **[xcrun: error: invalid active developer path](https://stackoverflow.com/questions/52522565/git-is-not-working-after-macos-update-xcrun-error-invalid-active-developer-pa)** (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun |
 | Load jcli | ```cargo install --path jcli```| Installing jcli v0.5.2 (/Users/cliff/jormungandr/jcli)|
-| Check the jcli version | ```jcli -V``` | jcli 0.5.X |
+| Check the jcli version | ```jcli -V``` | jcli 0.5.X to present |
 
 
 
@@ -193,7 +193,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 |Make an Account by hand|Type these commands into the OSX computer Terminal (computer_name:~ account$)| Output example |
 | ------------- | ------------- | -------------  |
-| Start (run) Jormungandr Passive Node | ```jormungandr --genesis-block-hash cfd99bc54ebf44b44e72db7e2d48a40499888781e7628ea0fbf286bfd480ca58 --config node-config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Start (run) Jormungandr Passive Node | ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 |Now we can make keys| note - new key making script here so you can skip to the faucet step. https://github.com/input-output-hk/jormungandr-qa/tree/master/scripts|```createAddress.sh account```|
@@ -205,9 +205,9 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) \| tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
 | List files and folders in jormungandr | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/en/cardano/shelley/tools/faucet/ | it will give you a transaction number  |
-| Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3101/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
+| Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3100/api``` (note: you need to check your node-config.yaml to see what port (i.e. 3101) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
 | Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ```send-money.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` | |
-| Check the message log to see tx |```jcli rest v0 message logs --host "http://127.0.0.1:3101/api```|
+| Check the message log to see tx |```jcli rest v0 message logs --host "http://127.0.0.1:3100/api```|
 
 >OUTPUT
 ================Send Money=================
@@ -311,11 +311,11 @@ Other tools and commands
 | Edit permission to execute command| ```chmod +x createAddress.sh``` | makes it executable  |
 | Edit file permission to execute command | ```chmod +x faucet-send-money.sh``` | makes it executable  |
 | Check if you are connecting to nodes | ```netstat -a \| grep ESTABLISHED``` [netstat reference here](https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l) | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
-| Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3101/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
-|Shutdown a Node (FYI) |```jcli rest v0 shutdown get -h http://127.0.0.1:3101/api```|
+| Check the blockchain statistics | ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api``` | blockRecvCnt: 0BlockDate: "217.36826"  |
+|Shutdown a Node (FYI) |```jcli rest v0 shutdown get -h http://127.0.0.1:3100/api```|
 | How to stop the command line if | (ctrl)+c |
 |ulimit error (tbd) |```launchctl limit maxfiles``` https://forum.aeternity.com/t/solved-problems-setting-up-a-node-on-osx-mojave/1678 |
-|run debug |```jormungandr --config node-config.yaml --genesis-block-hash ae57995b8fe086ba590c36dc930f2aa9b52b2ffa92c0698fff2347adafe8dc65 --log-level=debug``` |
+|run debug |```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml --log-level=debug``` |
 |find your public ip address|```dig +short myip.opendns.com @resolver1.opendns.com```|
 ---
 
@@ -324,7 +324,7 @@ Other tools and commands
 How to download the UTXO list from the blockchain
 
 ```
-jcli rest v0 utxo get --host "http://127.0.0.1:3101/api" 
+jcli rest v0 utxo get --host "http://127.0.0.1:3100/api" 
 ```
 
  output example
@@ -338,7 +338,7 @@ jcli rest v0 utxo get --host "http://127.0.0.1:3101/api"
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
 
-or you can use ```curl http://127.0.0.1:3101/api/v0/node/stats``` but there are security risks.  
+or you can use ```curl http://127.0.0.1:3100/api/v0/node/stats``` but there are security risks.  
 
 
 ------
