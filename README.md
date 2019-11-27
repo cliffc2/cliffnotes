@@ -1,6 +1,6 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Nov. 20 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. 
+>Nov. 20 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
 
 _This is currently under review and construction_ from 10-3-2019 
 
@@ -13,7 +13,7 @@ After you load the binaries, you will need to make a 2 folders (jormungandr fold
 NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
 
 CHECK THE RECENT BUILDS HERE. Will try to keep up with the changes
-https://hydra.iohk.io/build/1360340
+https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 
 
 
@@ -29,6 +29,37 @@ https://hydra.iohk.io/build/1360340
 
 
 ``` 
+#config.yaml for 0.7.3 nov 27th
+log:
+- output: stderr
+  format: plain
+  level: info
+p2p:
+  topics_of_interest:
+    blocks: normal
+    messages: low
+  trusted_peers:
+  - address: "/ip4/52.9.85.113/tcp/3000"
+    id: 7f47c880339670ad98d38ad3b379e1f7853479f8ef4f6fc7
+  - address: "/ip4/13.57.72.175/tcp/3000"
+    id: b8b20f58b34dd7a485c8cff0d67f800149b1ff220b826632
+  - address: "/ip4/52.8.62.219/tcp/3000"
+    id: f51aa0ce82b7f061e12762bd22b84424129f690655441b8e
+  - address: "/ip4/52.194.124.233/tcp/3000"
+    id: 255df5de725cd9d1087b8a3e4ff66d65572c36ceed791679
+  - address: "/ip4/52.197.220.18/tcp/3000"
+    id: 50768a0bb41781baa551cd96fb46a62e666e97874bca1cf5
+  - address: "/ip4/3.125.20.154/tcp/3000"
+    id: ddfea960bc2fe1aa45af9b385b6bd3e949c050df61b5b451
+  - address: "/ip4/3.124.255.35/tcp/3000"
+    id: 2b7216b51b890ef1e8ade8e513dd6f2b35173e46b08ac1a9
+rest:
+  listen: 127.0.0.1:<YOUR REST PORT>
+storage: "/tmp/jormungandr"
+```
+
+For reference
+```
 #config.yaml for 0.7.0 nov 20th - there is a new format
 
 {
