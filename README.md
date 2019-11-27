@@ -1,6 +1,6 @@
 # Shelley Testnet command list on OSX
 cliffc notes test
->Nov. 20 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
+>Nov. 27 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
 
 _This is currently under review and construction_ from 10-3-2019 
 
@@ -10,7 +10,9 @@ https://github.com/input-output-hk/jormungandr/releases/
 
 After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (or config.yaml then save the file in the jormungandr folder).
 
-NOTE - 0.7.0 IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
+NOTE - 0.7.3 IS USING ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ```  
+
+NOTE - 0.7.0 (old) IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
 
 CHECK THE RECENT BUILDS HERE. Will try to keep up with the changes
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
