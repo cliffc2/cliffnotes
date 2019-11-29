@@ -1,22 +1,20 @@
 # Shelley Testnet command list on OSX
-cliffc notes test
+cliffc notes 
 >Nov. 27 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
 
-_This is currently under review and construction_ from 10-3-2019 
+
 
 TO LOAD JORMUNGANDR FROM THE BINARIES GO HERE 
 
 https://github.com/input-output-hk/jormungandr/releases/ 
 
-After you load the binaries, you will need to make a 2 folders (jormungandr folder and a temp/storage folder) then create the node-config.yaml (or config.yaml then save the file in the jormungandr folder).
+After you load the binaries, you will need to make a 2 folders (jormungandr folder and a tmp/jormungandr "storage" folder) then create the config.yaml (or node-config.yaml then save the file to the jormungandr folder).
 
 NOTE - 0.8.0 rc1 IS USING ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ``` 
 
-NOTE - 0.7.3 IS USING ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ```  
 
-NOTE - 0.7.0 (old) IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
 
-CHECK THE RECENT BUILDS (config and genesis block) HERE. Will try to keep up with the changes
+Check the recent IOHK builds (config and genesis block info).
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 
 
@@ -24,16 +22,16 @@ https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 | Steps (for binaries install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
 | ------------- | ------------- | -------------  |
 | Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this is where you find your jormungandr program    |
-| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/temp/storage```      |   this path needs to be in your node-config.yaml (see below)     |
-| Check your ip address (public) this goes into your node-config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
-| Configure the node |  Open (or create) node-config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
+| Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jomungandr```      |   this path needs to be in your config.yaml (see below)     |
+| Check your ip address (public) this goes into your "node" config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
+| Configure the node |  Open (or create) config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 
->Example node-config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports (like an telephone extension number) i.e. 3101, storage folder location needs to match also.)
+>Example config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports (like an telephone extension number) i.e. 3101, storage folder location needs to match also.)
 ---
 
 
 ``` 
-#config.yaml for 0.7.3 nov 27th and 0.8.0 rc1
+#config.yaml for 0.7.3 nov 27th and 0.8.0 rc1 nov 29th
 log:
 - output: stderr
   format: plain
@@ -64,7 +62,7 @@ storage: "/tmp/jormungandr"
 
 For reference
 ```
-#config.yaml for 0.7.0 nov 20th - there is a new format
+#config.yaml for 0.7.0 nov 20th - example format
 
 {
   "log": {
@@ -145,7 +143,7 @@ p2p:
      id: bcfc82c9660e28d4dcb4d1c8a390350b18d04496c2ac8474
 rest:
  listen: 127.0.0.1:3101  #you need to check this port when using jcli command
-storage: "temp/storage" #you need to check this location
+storage: "temp/storage" #you need to check this location and match correct names
 explorer:
  enabled: false
 mempool:
@@ -159,17 +157,17 @@ leadership:
  ```
 
 -----
->Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the node-config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api ``` but if the port is 3101 or some other number you will get an error. Also the genesis block (BLOCK0_HASH) we are using for this 0.5.6-0.7.0 rc3 testnet does not work with rc7
-for 0.7.0 rc7 
+>Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api ``` but if the port is 3101 or some other number you will get an error. 
+
 
 
 | Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
 |Start (run) Jormungandr Node 0.7.3|```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ```||
-| Start (run) Jormungandr Node 0.7.0b | ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ``` (note: you need to use the new hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+| Skip this Reference 0.7.0b | ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ``` (note: you need to use the new hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
 | Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
-| Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3100/api``` (note 3101 port may be setup differently, you can find it in your node-config.yaml example below.) | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
+| Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3100/api``` | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
 | Check the node statistics compare with jcli rest command|```curl http://127.0.0.1:3100/api/v0/node/stats```|blockRecvCnt:2923-lastBlockDate: "217.22760"-lastBlockFees:|
 | You can also check from your browser. (check your port)|http://127.0.0.1:3100/api/v0/stake_pools||
 
