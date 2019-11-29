@@ -16,7 +16,7 @@ NOTE - 0.7.3 IS USING ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2
 
 NOTE - 0.7.0 (old) IS USING ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ```  
 
-CHECK THE RECENT BUILDS HERE. Will try to keep up with the changes
+CHECK THE RECENT BUILDS (config and genesis block) HERE. Will try to keep up with the changes
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 
 
