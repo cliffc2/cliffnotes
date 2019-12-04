@@ -201,9 +201,7 @@ THE END OF THE BINARIES LOAD, RUN, AND CHECK NODE STATUS.
   * get node id
 
 
-
-
->_Open a command line Terminal (Open
+>  _Open a command line Terminal (Open
 the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 | Steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
@@ -307,6 +305,18 @@ jcli certificate new stake-pool-registration \
     --start-validity 0  \
     --management-threshold 1 \
     --serial 1010101010 > stake_pool.cert
+
+    #dec 4th telegram rip
+    
+    jcli certificate new stake-pool-registration \
+    --kes-key $(cat stake_pool_kes.pub) \
+    --vrf-key $(cat stake_pool_vrf.pub) \
+    --start-validity 0 \
+    --management-threshold 1 \
+    --tax-fixed 1000000 \
+    --tax-limit 1000000000 \
+    --tax-ratio "1/10" \
+    --owner $(cat owner_key.pub) > stake_pool.cert
 
 ---
 How to update (get the new) Jormungandr version with git
