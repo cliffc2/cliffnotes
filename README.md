@@ -88,7 +88,7 @@ https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 ```
 
 ``` 
-#config.yaml for 0.7.3 nov 27th and 0.8.0 rc1 nov 29th
+#config.yaml for 0.7.3 beta nov 27th and 0.8.0 rc1 nov 29th
 log:
 - output: stderr
   format: plain
@@ -119,7 +119,7 @@ storage: "/tmp/jormungandr"
 
 For reference
 ```
-#config.yaml for 0.7.0 nov 20th - example format
+#config.yaml for 0.7.0 beta nov 20th - example format
 
 {
   "log": {
