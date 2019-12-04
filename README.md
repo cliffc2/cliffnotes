@@ -10,13 +10,16 @@ https://github.com/input-output-hk/jormungandr/releases/
 
 After you load the binaries, you will need to make a 2 folders (jormungandr folder and a tmp/jormungandr "storage" folder) then create the config.yaml (or node-config.yaml then save the file to the jormungandr folder).
 
-OLD NOTE - 0.8.0 rc1 beta is using ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ``` 
+
 
 # Genesis block hash for 0.8.0-rc7 nightly (Updated 12/4/19)
 ```c8a1b4b8cd3b6a6c39adba11f62c34230b37b388f5a8edfe8cd73e7b8f811f48```
 
-NOTE - 0.8.0 rc7 beta is using ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config nightly-config.yaml ``` 
+NOTE - 0.8.0 rc7 nightly is using ```jormungandr --genesis-block-hash c8a1b4b8cd3b6a6c39adba11f62c34230b37b388f5a8edfe8cd73e7b8f811f48 --config nightly-config.yaml ``` 
 
+NOTE - 0.7.0 beta is using ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ``` 
+
+OLD NOTE - 0.8.0 rc1 beta is using ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ``` 
 
 Check the recent IOHK builds (config and genesis block info).
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
