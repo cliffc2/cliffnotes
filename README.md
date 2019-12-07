@@ -1,8 +1,5 @@
 # Shelley Testnet command list on OSX
-cliffc notes for noobs 
->Nov. 27 2019 - These are my notes to load jormungandr. The code is changing daily so check the telegram group for updates.  References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
-
-
+>Dec 8, 2019 - The code is changing daily so check the telegram group for updates. References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
 
 TO LOAD JORMUNGANDR FROM THE BINARIES GO HERE 
 
@@ -10,10 +7,17 @@ https://github.com/input-output-hk/jormungandr/releases/
 
 After you load the binaries, you will need to make a 2 folders (jormungandr folder and a tmp/jormungandr "storage" folder) then create the config.yaml (or node-config.yaml then save the file to the jormungandr folder).
 
+Real-time stakepool map (global)
+https://input-output-hk.github.io/shelley-node-map/
 
+Jormungandr Overall Block Aggregate:
+https://gist.github.com/disassembler/8bf31cb82dc3a854da1552f07540976e
 
-# Genesis block hash for 0.8.0-rc7 nightly (Updated 12/4/19)
+# Genesis block hash for 0.8.0-rc9+ nightly (Updated 12/8/19)
 ```c8a1b4b8cd3b6a6c39adba11f62c34230b37b388f5a8edfe8cd73e7b8f811f48```
+
+
+NOTE - 0.8.0 rc9+1 nightly is using ```jormungandr --genesis-block-hash 65a9b15f82619fffd5a7571fdbf973a18480e9acf1d2fddeb606ebb53ecca839 --config nightly-config.yaml ``` 
 
 NOTE - 0.8.0 rc7 nightly is using ```jormungandr --genesis-block-hash c8a1b4b8cd3b6a6c39adba11f62c34230b37b388f5a8edfe8cd73e7b8f811f48 --config nightly-config.yaml ``` 
 
@@ -23,7 +27,7 @@ OLD NOTE - 0.8.0 rc1 beta is using ```jormungandr --genesis-block-hash 27668e951
 
 Check the recent IOHK builds (config and genesis block info).
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
-
+for the nightly go to the hydra site and use the search term nightly (look for the linux distribution)
 
 
 | Steps (for binaries install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
@@ -34,7 +38,63 @@ https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 | Configure the node |  Open (or create) config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 
 >Example config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports (like an telephone extension number) i.e. 3101, storage folder location needs to match also.)
----
+
+
+
+Config for 0.8.0 rc9+1 nightly
+```
+{
+  "log": [
+    {
+      "format": "plain",
+      "level": "info",
+      "output": "stderr"
+    }
+  ],
+  "p2p": {
+    "topics_of_interest": {
+      "blocks": "normal",
+      "messages": "low"
+    },
+    "trusted_peers": [
+      {
+        "address": "/ip4/13.230.137.72/tcp/3000",
+        "id": "fe3332044877b2034c8632a08f08ee47f3fbea6c64165b3b"
+      },
+      {
+        "address": "/ip4/13.230.48.191/tcp/3000",
+        "id": "c38aabb936944776ef15bbe4b5b02454c46a8a80d871f873"
+      },
+      {
+        "address": "/ip4/18.196.168.220/tcp/3000",
+        "id": "7e2222179e4f3622b31037ede70949d232536fdc244ca3d9"
+      },
+      {
+        "address": "/ip4/3.124.132.123/tcp/3000",
+        "id": "9085fa5caeb39eace748a7613438bd2a62c8c8ee00040b71"
+      },
+      {
+        "address": "/ip4/18.184.181.30/tcp/3000",
+        "id": "f131b71d65c49116f3c23c8f1dd7ceaa98f5962979133404"
+      },
+      {
+        "address": "/ip4/184.169.162.15/tcp/3000",
+        "id": "fdb88d08c7c759b5d30e854492cb96f8203c2d875f6f3e00"
+      },
+      {
+        "address": "/ip4/52.52.67.33/tcp/3000",
+        "id": "3d1f8891bf53eb2946a18fb46cf99309649f0163b4f71b34"
+      }
+    ]
+  },
+  "rest": {
+    "listen": "127.0.0.1:3100"
+  },
+  "storage": "tmp/jormungandr080rc91"
+}
+```
+
+
 ``` 
 #CONFIG FOR  0.8.0 RC7
 {
@@ -120,9 +180,9 @@ rest:
 storage: "/tmp/jormungandr"
 ```
 
-For reference
+> For reference
 ```
-#config.yaml for 0.7.0 beta nov 20th - example format
+#config.yaml for 0.7.0 beta nov 20th - example format (dec 8 - worked)
 
 {
   "log": {
@@ -171,7 +231,6 @@ For reference
   }
 }
 
-#end of file
 
 ```
 Below is 070rc7 node-config.yaml it has been depreciated - it is here for reference
@@ -216,7 +275,7 @@ leadership:
 
  ```
 
------
+
 >Troubleshooting note: If you have problems, check your path to make sure jormungandr can find the config.yaml (should be in the jormangandr folder). Also check your ports to make sure they are pointing to the right number. i.e. when you run ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api ``` but if the port is 3101 or some other number you will get an error. 
 
 
