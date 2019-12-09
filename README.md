@@ -477,6 +477,7 @@ Other tools and commands
 | Find your mac version |```uname -a```  | 
 | Check the file permissions (execute?) |```ls -l```  | 
 | Check the hidden files |```ls -a```  | 
+|Check for ssh keys|```ls -al ~/.ssh```|
 | Edit permission to execute command| ```chmod +x createAddress.sh``` | makes it executable  |
 | Edit file permission to execute command | ```chmod +x faucet-send-money.sh``` | makes it executable  |
 | Check if you are connecting to nodes | ```netstat -a \| grep ESTABLISHED``` [netstat reference here](https://explainshell.com/explain?cmd=netstat+-an+%7C+grep+%3A80+%7C+wc+-l) | tcp4--macbook-pro.61611lb-192-30-253-11.https ESTABLISHED |
