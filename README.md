@@ -28,6 +28,9 @@ OLD NOTE - 0.8.0 rc1 beta is using ```jormungandr --genesis-block-hash 27668e951
 Check the recent IOHK builds (config and genesis block info).
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 for the nightly go to the hydra site and use the search term nightly (look for the linux distribution)
+this is the dec 8. https://hydra.iohk.io/build/1464582
+
+https://hydra.iohk.io/build/1464579/download/1/index.html
 
 
 | Steps (for binaries install) | Type these commands into the OSX computer Terminal (computer_name:~ account$) or create the folders in your finder | Output example |
