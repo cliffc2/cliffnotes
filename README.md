@@ -285,8 +285,8 @@ leadership:
 
 | Next steps (mostly in order) | Type these commands into the OSX computer Terminal (computer_name:~ account$) | Output example |
 | ------------- | ------------- | -------------  |
-|Start (run) Jormungandr Node 0.7.3|```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ```||
-| Skip this Reference 0.7.0b | ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ``` (note: you need to use the new hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+|Start (run) Jormungandr Node 0.8.0 rc10 |```jormungandr --genesis-block-hash 65a9b15f82619fffd5a7571fdbf973a18480e9acf1d2fddeb606ebb53ecca839 --config nightly-config.yaml ```||
+| Skip this Reference 0.7.0 beta | ```jormungandr --genesis-block-hash <INSERT GENESIS_BLOCK_FOR 070 BETA> --config config.yaml ``` (note: you need to use the new hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Open a new command line terminal | Terminal > shell > new window (or command + N)| new terminal opens  |
 | Check the node is in 'sync' | ```jcli rest v0 node stats get -h http://127.0.0.1:3100/api``` | blockRecvCnt:234-lastBlockDate: "217.22760"-lastBlockFees:    |
 | Check your fee settings  | ```jcli rest v0 settings get -h http://127.0.0.1:3100/api``` | block0Hash: adbdd5ede31637-block0Time: "2019-02-22T07:53:34+00:00 |
@@ -349,8 +349,8 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 
 |Make an Account by hand|Type these commands into the OSX computer Terminal (computer_name:~ account$)| Output example |
 | ------------- | ------------- | -------------  |
-|Start (run) Jormungandr Node 0.8.0|```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ```||
-| Start (old) Jormungandr Passive Node 0.7.0 | ```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml ``` (note: you need to use this adbdd....hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
+|Start (run) Jormungandr Node 0.8.0 RC10|```jormungandr --genesis-block-hash 65a9b15f82619fffd5a7571fdbf973a18480e9acf1d2fddeb606ebb53ecca839 --config config.yaml ```||
+| Start (old) Jormungandr Passive Node 0.7.0 | ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ``` (note: you need to use this hash to connect to the testnet chain.  Do not use --genesis-block block-0.bin to start the node. That is a self-node.) | Sep 28 04:32:15.874 INFO Starting jormungandr 0.5.2 (master-0b40827e, release, macos [x86_64]) - [rustc 1.38.0 (625451e37 2019-09-23)], task: init  |
 | Check the directory | ```ls``` | list of folders |
 | Go to the Jormungandr folder | ```cd jormungandr``` | returns command prompt - macbook-pro:~ cliff$  |
 |Now we can make keys| note - new key making script here so you can skip to the faucet step. https://github.com/input-output-hk/jormungandr-qa/tree/master/scripts|```createAddress.sh account```|
