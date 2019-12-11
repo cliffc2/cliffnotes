@@ -13,6 +13,9 @@ https://input-output-hk.github.io/shelley-node-map/
 Jormungandr Overall Block Aggregate:
 https://gist.github.com/disassembler/8bf31cb82dc3a854da1552f07540976e
 
+Cardano-wallet (to be recognized by Daedalus and Yoroi you need to get a secret key from the cardano-wallet)
+https://github.com/input-output-hk/cardano-wallet/wiki/Wallet-command-line-interface
+
 # Genesis block hash for 0.8.0-rc10 nightly (Updated 12/8/19)
 ```65a9b15f82619fffd5a7571fdbf973a18480e9acf1d2fddeb606ebb53ecca839```
 
