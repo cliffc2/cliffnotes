@@ -366,7 +366,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 | List files and folders in jormungandr | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | FAUCET STEP Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/en/cardano/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3100/api``` (note: you need to check your node-config.yaml (config.yaml) to see what port (i.e. 3101 or 3100) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
-| Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/shelley-testnet/tree/master/scripts ```send-money.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` | |
+| Send tokens to account | Now we can send tokens (money) using a script.  https://github.com/input-output-hk/jormungandr-qa/tree/master/scripts ```send-lovelaces.sh <ADDRESS> <AMOUNT> <REST-LISTEN-PORT> <SOURCE-SK>``` | |
 | Check the message log to see tx |```jcli rest v0 message logs --host "http://127.0.0.1:3100/api```|
 
 >OUTPUT
