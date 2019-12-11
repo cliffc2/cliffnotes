@@ -362,7 +362,7 @@ the Finder ▸ ⁨look under Applications⁩ ▸ ⁨and click Utilities⁩)_
 |skip|run script ```createAddress.sh account```|```createAddress.sh account```|
 | Make a secret key | ```jcli key generate --type=Ed25519Extended > receiver_secret.key``` | ed25519e_sk1vqsf2dh3rlg2....  |
 | Make a public key from the secret key | ```cat receiver_secret.key | jcli key to-public > receiver_public.key``` | ed25519_pk1nv4f5.... |
-| Make an account address from the public key | ```jcli address account --testing $(cat receiver_public.key) | tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
+| Make an account address from the public key | ```jcli address account --prefix addr --testing $(cat receiver_public.key) | tee receiver_account.txt``` | This is your receiver account (account address) ca1s56lu955y... |
 | List files and folders in jormungandr | ```ls ``` (You should see receiver_account.txt, receiver_secret.key, receiver_public.key...) | list of all your files and folders |
 | FAUCET STEP Go to the IOHK website to get ADA testnet tokens from the faucet| Now we can go get testnet tokens https://testnet.iohkdev.io/en/cardano/shelley/tools/faucet/ | it will give you a transaction number  |
 | Check your account address to see your tokens | ```jcli rest v0 account get $(cat receiver_account.txt) -h  http://127.0.0.1:3100/api``` (note: you need to check your node-config.yaml (config.yaml) to see what port (i.e. 3101 or 3100) you are using) | counter: 0 -delegation:pools:[] value: 250000000000 |
