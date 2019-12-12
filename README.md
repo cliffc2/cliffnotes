@@ -40,7 +40,7 @@ https://hydra.iohk.io/build/1464579/download/1/index.html
 | ------------- | ------------- | -------------  |
 | Make a folder to store the jormungandr and program |   ```mkdir -p ~/jormungandr```      |   this is where you find your jormungandr program    |
 | Make a folder to store the temporary blockchain (database)|   ```mkdir -p ~/tmp/jomungandr```      |   this path needs to be in your config.yaml (see below)     |
-| Check your ip address (public) this goes into your "node" config.yaml | [What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
+| Check your ip address (public) this goes into your "node" config.yaml | ```ifconfig```[What is my IP address](https://www.whatismyip.com/) | 143.0.173.9 |
 | Configure the node |  Open (or create) config.yaml   |  See the example node-config.yaml below or [IOHK reference]((https://input-output-hk.github.io/jormungandr/quickstart/02_passive_node.html)) |
 
 >Example config.yaml file (you need to make this to connect to other machines. change the public address check your ip address; use [ifconfig.me](ifconfig.me) and check the ports (like an telephone extension number) i.e. 3101, storage folder location needs to match also.)
@@ -488,7 +488,7 @@ Other tools and commands
 |Shutdown a Node (FYI) |```jcli rest v0 shutdown get -h http://127.0.0.1:3100/api```|
 | How to stop the command line if | (ctrl)+c |
 |ulimit error (tbd) |```launchctl limit maxfiles``` https://forum.aeternity.com/t/solved-problems-setting-up-a-node-on-osx-mojave/1678 |
-|run debug |```jormungandr --genesis-block-hash dceef4d6696ead83eadb5104c6383e1905aa81fc7a79ea2ca87a97c2bfd2f4a1 --config config.yaml --log-level=debug``` |
+|run debug |```jormungandr --genesis-block-hash check4thelatestgenesisblock3 --config config.yaml --log-level=debug``` |
 |find your public ip address|```dig +short myip.opendns.com @resolver1.opendns.com```|
 ---
 
