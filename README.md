@@ -29,6 +29,8 @@ NOTE - 0.7.0 beta is using ```jormungandr --genesis-block-hash 27668e95121566df0
 OLD NOTE - 0.8.0 rc1 beta is using ```jormungandr --genesis-block-hash 27668e95121566df0bb2e2c11c5fd95dfe59efd570f8f592235ecff167ca3f29 --config config.yaml ``` 
 
 Check the recent IOHK builds (config and genesis block info).
+
+https://hydra.iohk.io/build/1483569/download/1/index.html
 https://hydra.iohk.io/job/Cardano/jormungandr/jormungandrConfigs.beta/latest
 for the nightly go to the hydra site and use the search term nightly (look for the linux distribution)
 this is the dec 8. https://hydra.iohk.io/build/1464582
@@ -511,7 +513,7 @@ jcli rest v0 utxo get --host "http://127.0.0.1:3100/api"
   transaction_id: ff50694b70a3369e1235bf6919f33477d30587584ea46f0280b2b25e46f29ecf
 
 
-or you can use ```curl http://127.0.0.1:3100/api/v0/node/stats``` but there are security risks.  
+or you can use ```curl http://127.0.0.1:3100/api/v0/node/stats```  
 
 
 ------
@@ -554,17 +556,9 @@ The Official reference
 
 
 >Also check out the [Cardano StakePool Community on telegram](https://t.me/CardanoStakePoolWorkgroup) and the Github support triage for the Shelley testnet if you have any questions.
-https://github.com/input-output-hk/shelley-testnet
 
 
 
-
-| Kyleo quickstart | website |
-| ------------- | ------------- |
-| build/start node: | https://lovelace.community/testnet-shelley.html  |
-| create account/get ada:  | https://lovelace.community/testnet-shelley-faucet.html |
-| create pool: | https://lovelace.community/  |
-| delegate to stake pool:| https://lovelace.community/testnet-shelley-delegate.html  |
 
 
 [Official IOHK ZEN Help desk](https://iohk.zendesk.com/hc/en-us/articles/360036898153-How-to-install-Jormungandr-Networking-Linux-macOS-)
