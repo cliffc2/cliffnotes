@@ -1,5 +1,5 @@
 # Shelley Testnet command list on OSX
->Dec 13, 2019 - The code base is changing daily so check the telegram group for updates. References to other guides are below. Check out Chris Graffagnino's notes too. https://gist.github.com/Chris-Graffagnino/4d1be0b88dcaa93440a81dcafdc47afd#create-node-configyaml
+>Dec 13, 2019 - The code base is changing daily so check the telegram group for updates. References to other guides are below. Check out Chris Graffagnino's notes too. https://github.com/Chris-Graffagnino/Jormungandr-for-Newbs/blob/master/docs/jormungandr_node_setup_guide.md
 
 THIS REPO WILL BE DEPRECIATED - A NEW FOLDER WILL BE DEDICATED TO THE 0.8.0 BETA
 https://github.com/cliffc2/jormungandr-setup 
